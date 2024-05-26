@@ -40,6 +40,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    @Suppress("DEPRECATION")
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
