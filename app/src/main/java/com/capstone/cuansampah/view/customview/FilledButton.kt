@@ -27,6 +27,5 @@ class FilledButton : AppCompatButton {
         super.onDraw(canvas)
         background = if (isEnabled) enabledBackground else disabledBackground
         setTextColor(txtColor)
-        gravity = Gravity.CENTER
     }
 }

@@ -4,4 +4,9 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="create_account">Create an Account</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="email_hint">Enter your email</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="dont_have_an_account">Don\'t have an account?</string>
 </resources>
