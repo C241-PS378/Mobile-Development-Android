@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Cuan Sampah</string>
     <string name="welcome">Welcome to\nCuan Sampah</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="create_account">Create an Account</string>
 </resources>
