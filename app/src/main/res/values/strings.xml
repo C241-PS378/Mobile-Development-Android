@@ -12,7 +12,7 @@
     <string name="create_account_first">Create Your Account First!</string>
     <string name="username_hint">Username</string>
     <string name="phone_hint">Phone Number</string>
-    <string name="confirm_password_hint">Comfirm Password</string>
+    <string name="confirm_password_hint">Confirm Password</string>
     <string name="already_have_an_account">Already have an account?</string>
 
 </resources>
