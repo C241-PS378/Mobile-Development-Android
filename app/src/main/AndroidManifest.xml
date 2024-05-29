@@ -15,6 +15,9 @@
         android:theme="@style/Theme.CuanSampah"
         tools:targetApi="31">
         <activity
+            android:name=".view.login.ResetPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.onboarding.OnboardingActivity"
             android:exported="false" />
         <activity
