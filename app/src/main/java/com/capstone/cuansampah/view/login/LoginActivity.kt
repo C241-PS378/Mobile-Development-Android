@@ -15,7 +15,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setupView()
         setupAction()
     }
@@ -32,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.forgotPassword.setOnClickListener {
-
+            startActivity(Intent(this, ResetPasswordActivity::class.java))
         }
 
         binding.tvRegister.setOnClickListener {

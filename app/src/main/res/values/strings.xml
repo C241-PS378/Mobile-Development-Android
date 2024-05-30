@@ -14,5 +14,8 @@
     <string name="phone_hint">Phone Number</string>
     <string name="confirm_password_hint">Confirm Password</string>
     <string name="already_have_an_account">Already have an account?</string>
-
+    <string name="confirm">Confirm</string>
+    <string name="reset_password">Reset your Password</string>
+    <string name="title_reset_success">Reset Password Successfull</string>
+    <string name="content_reset_success">Your password has been changed! \n In the future don\'t forget \n your password!</string>
 </resources>
