@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        android:title="@string/title_home"
+        />
+
+    <item
+        android:id="@+id/navigation_market"
+        android:icon="@drawable/waste"
+        android:title="@string/title_market"
+        />
+
+    <item
+        android:id="@+id/navigation_camera"
+        android:icon="@drawable/camera"
+        android:title="@string/title_camera"
+        />
+
+    <item
+        android:id="@+id/navigation_shipping"
+        android:icon="@drawable/shipping"
+        android:title="@string/title_shipping"
+        />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/profile"
+        android:title="@string/title_profile"
+        />
+</menu>

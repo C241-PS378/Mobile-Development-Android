@@ -18,4 +18,16 @@
     <string name="reset_password">Reset your Password</string>
     <string name="title_reset_success">Reset Password Successfull</string>
     <string name="content_reset_success">Your password has been changed! \n In the future don\'t forget \n your password!</string>
+    <string name="title_home">Home</string>
+    <string name="title_market">Market</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_shipping">Shipping</string>
+    <string name="title_profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="camera_page">Camera Page</string>
+    <string name="home_page">Home Page</string>
+    <string name="market_page">Market Page</string>
+    <string name="pickup_page">Pickup Page</string>
+    <string name="profile_page">Profile Page</string>
 </resources>

@@ -40,6 +40,11 @@ android {
 }
 
 dependencies {
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    implementation("com.github.bumptech.glide:glide:4.13.1")
+
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.2")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.2")
 
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
