@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavigationView.setupWithNavController(navController)
         binding.btnWelcome.setOnClickListener {
-//            startActivity(intent)
             startActivity(Intent(this, LoginActivity::class.java))
         }
 

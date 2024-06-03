@@ -30,4 +30,13 @@
     <string name="market_page">Market Page</string>
     <string name="pickup_page">Pickup Page</string>
     <string name="profile_page">Profile Page</string>
+    <string name="search">Search...</string>
+    <string name="history">History</string>
+    <string name="cart">Cart</string>
+    <string name="ceban">Rp. 10.000,-</string>
+    <string name="logout">Log out</string>
+    <string name="profile_settings">Profile Settings</string>
+    <string name="your_items">Your Items</string>
+    <string name="your_location">Your Location</string>
+    <string name="nearby_collectors">Nearby Collectors</string>
 </resources>

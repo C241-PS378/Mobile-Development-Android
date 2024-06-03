@@ -20,9 +20,6 @@
             android:name=".view.home.ItemSliderActivity"
             android:exported="false" />
         <activity
-            android:name=".view.home.HomeActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.login.ResetPasswordActivity"
             android:exported="false" />
         <activity

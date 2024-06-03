@@ -29,7 +29,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_graph"/>
 
-
     <Button
         android:id="@+id/btn_welcome"
         android:layout_width="wrap_content"
