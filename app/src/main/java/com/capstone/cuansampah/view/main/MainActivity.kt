@@ -38,9 +38,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavigationView.setupWithNavController(navController)
-        binding.btnWelcome.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-        }
 
     }
     override fun onSupportNavigateUp(): Boolean {

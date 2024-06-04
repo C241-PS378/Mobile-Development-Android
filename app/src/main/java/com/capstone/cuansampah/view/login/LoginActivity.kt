@@ -30,7 +30,6 @@ class LoginActivity : AppCompatActivity() {
     private fun setupAction() {
 
         binding.btnLogin.setOnClickListener {
-            // Use Navigation to navigate to HomeFragment
             val navController = findNavController(R.id.navigation_home)
             navController.navigate(R.id.navigation_home)
         }

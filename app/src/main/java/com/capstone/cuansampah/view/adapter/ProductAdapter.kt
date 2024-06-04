@@ -1,4 +1,4 @@
-package com.capstone.cuansampah.view.market
+package com.capstone.cuansampah.view.adapter
 
 import android.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
