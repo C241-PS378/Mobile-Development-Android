@@ -6,11 +6,11 @@
 **Cuan Sampah** is Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nisl eget sollicitudin scelerisque, ex dolor posuere justo, vel tincidunt nisl ligula vel mi. Donec eget volutpat nisi, id elementum tortor. Praesent posuere sem vel laoreet mollis. Nulla aliquet nibh nisl, sit amet bibendum lacus volutpat eget. In viverra blandit.
 
 ## :gear: Features
-- 💸: Sell your waste!
+- 💸: Sell Your Waste!
 - 🛻: Nearby Collectors Pick Up
 - 🛒: Waste Market
 
-## :technologist: Project Team
+## :technologist: Project Team Members
 - Alda Kurnia Putri - M015D4KX2311
 - Salsabila Hasna Fitria - M015D4KX2108
 - Siti Marwah - M228D4KX2569
