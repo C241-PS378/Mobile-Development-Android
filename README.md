@@ -2,7 +2,7 @@
 
 ### Waste Commerce | Cuan Sampah
  
-#### Save Waste, Save Earth, Save Money \n
+#### Save Waste, Save Earth, Save Money
 
 **Cuan Sampah** is Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nisl eget sollicitudin scelerisque, ex dolor posuere justo, vel tincidunt nisl ligula vel mi. Donec eget volutpat nisi, id elementum tortor. Praesent posuere sem vel laoreet mollis. Nulla aliquet nibh nisl, sit amet bibendum lacus volutpat eget. In viverra blandit.
 
