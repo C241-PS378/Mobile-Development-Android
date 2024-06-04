@@ -1,4 +1,4 @@
-# <img align="left" alt="Cuan Sampah" title="cuan sampah" width="50px" src="https://github.com/hiqmalism/tash-clean/assets/113483636/fb05b1fb-110b-40ee-ad1d-bdac74d11869"/></a>CUAN SAMPAH 
+# <img align="left" alt="Cuan Sampah" title="cuan sampah" width="50px" src="[https://github.com/hiqmalism/tash-clean/assets/113483636/fb05b1fb-110b-40ee-ad1d-bdac74d11869](https://github.com/hiqmalism/Cuan-Sampah/blob/master/app/src/main/res/drawable/logo_app.png)"/></a>CUAN SAMPAH 
 > Save Waste, Save Earth, Save Money
 
 ### Waste Commerce | Cuan Sampah
