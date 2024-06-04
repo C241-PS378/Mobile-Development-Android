@@ -1,8 +1,9 @@
 # <img align="left" alt="Cuan Sampah" title="cuan sampah" width="40px" src="https://github.com/hiqmalism/Cuan-Sampah/blob/master/app/src/main/res/drawable/logo_app.png"/></a>CUAN SAMPAH 
-### Save Waste, Save Earth, Save Money
 
 ### Waste Commerce | Cuan Sampah
-  
+ 
+#### Save Waste, Save Earth, Save Money
+
 **Cuan Sampah** is Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nisl eget sollicitudin scelerisque, ex dolor posuere justo, vel tincidunt nisl ligula vel mi. Donec eget volutpat nisi, id elementum tortor. Praesent posuere sem vel laoreet mollis. Nulla aliquet nibh nisl, sit amet bibendum lacus volutpat eget. In viverra blandit.
 
 ## :gear: Features
