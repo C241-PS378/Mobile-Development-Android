@@ -1,6 +1,6 @@
 # <img align="left" alt="Cuan Sampah" title="cuan sampah" width="50px" src="https://github.com/hiqmalism/tash-clean/assets/113483636/fb05b1fb-110b-40ee-ad1d-bdac74d11869"/></a>CUAN SAMPAH
 
-### Save Waste, Save Earth, Save Money
+> Save Waste, Save Earth, Save Money
 
 ### Waste Commerce | Cuan Sampah
   
