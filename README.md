@@ -19,6 +19,3 @@
 - Jihandika Proyugo - C550D4NX1341
 - Hernanda Hiqmal Maula - A228D4KY3982
 - Yatinah - A228D4KX3992
-=======
-# Mobile-Development-Android
->>>>>>> newrepo/main
