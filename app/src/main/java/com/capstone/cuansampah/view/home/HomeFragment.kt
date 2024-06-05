@@ -9,7 +9,7 @@ import androidx.viewpager.widget.ViewPager
 import com.capstone.cuansampah.R
 import com.capstone.cuansampah.databinding.ActivityHomeBinding
 import com.capstone.cuansampah.view.adapter.SliderHomeAdapter
-import com.capstone.cuansampah.view.data.local.ItemImageSlider
+import com.capstone.cuansampah.data.local.ItemImageSlider
 
 
 class HomeFragment : Fragment() {

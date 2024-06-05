@@ -10,7 +10,7 @@ import android.widget.ImageView
 import android.os.Handler
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.capstone.cuansampah.view.data.local.ItemImageSlider
+import com.capstone.cuansampah.data.local.ItemImageSlider
 
 class SliderHomeAdapter(private val context: Context, private var imgList: List<ItemImageSlider>) : PagerAdapter(){
     private var currentPage = 0

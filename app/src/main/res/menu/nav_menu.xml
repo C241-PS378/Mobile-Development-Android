@@ -19,7 +19,7 @@
         />
 
     <item
-        android:id="@+id/navigation_shipping"
+        android:id="@+id/navigation_pickup"
         android:icon="@drawable/shipping"
         android:title="@string/title_shipping"
         />

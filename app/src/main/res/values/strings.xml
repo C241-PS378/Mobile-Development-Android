@@ -42,4 +42,7 @@
     <string name="picked_up">Picked Up</string>
     <string name="bought">Bought</string>
     <string name="sold">Sold</string>
+    <string name="open_camera">Open Camera\n</string>
+    <string name="open_gallery">Open Gallery</string>
+    <string name="empty_image">Image Not Found</string>
 </resources>
