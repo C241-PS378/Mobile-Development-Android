@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Cuan Sampah</string>
+    <string name="welcome">Welcome to\nCuan Sampah</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="create_account">Create an Account</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="email_hint">Enter your email</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="dont_have_an_account">Don\'t have an account?</string>
+    <string name="create_account_first">Create Your Account First!</string>
+    <string name="username_hint">Username</string>
+    <string name="phone_hint">Phone Number</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="confirm">Confirm</string>
+    <string name="reset_password">Reset your Password</string>
+    <string name="title_reset_success">Reset Password Successful</string>
+    <string name="content_reset_success">Your password has been changed! \n In the future don\'t forget \n your password!</string>
+    <string name="title_home">Home</string>
+    <string name="title_market">Market</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_shipping">Shipping</string>
+    <string name="title_profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="camera_page">Camera Page</string>
+    <string name="home_page">Home Page</string>
+    <string name="market_page">Market Page</string>
+    <string name="pickup_page">Pickup Page</string>
+    <string name="profile_page">Profile Page</string>
+    <string name="search">Search…</string>
+    <string name="history">History</string>
+    <string name="cart">Cart</string>
+    <string name="ceban">Rp. 10.000,-</string>
+    <string name="logout">Log out</string>
+    <string name="profile_settings">Profile Settings</string>
+    <string name="my_items">My Items</string>
+    <string name="my_address">My Address</string>
+    <string name="nearby_collectors">Nearby Collectors</string>
+    <string name="picked_up">Picked Up</string>
+    <string name="bought">Bought</string>
+    <string name="sold">Sold</string>
+</resources>

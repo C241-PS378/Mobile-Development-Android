@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/navigation_home"
+    xmlns:tools="http://schemas.android.com/tools">
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.capstone.cuansampah.view.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_market"
+        android:name="com.capstone.cuansampah.view.market.MarketFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_market" />
+
+    <fragment
+        android:id="@+id/navigation_camera"
+        android:name="com.capstone.cuansampah.view.camera.CameraFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_camera" />
+
+
+    <fragment
+        android:id="@+id/navigation_pickup"
+        android:name="com.capstone.cuansampah.view.pickup.PickupFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_pickup" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.capstone.cuansampah.view.profile.ProfileFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>

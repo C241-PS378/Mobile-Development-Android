@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="emerald">#15C986</color>
+    <color name="sea_green">#0E8157</color>
+    <color name="jade">#11A670</color>
+    <color name="aquamarine">#20D492</color>
+    <color name="light_aquamarine">#22E3A0</color>
+    <color name="on_error">#FB4B4B</color>
+    <color name="on_process">#FFC163</color>
+</resources>
