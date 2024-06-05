@@ -1,4 +1,4 @@
-package com.capstone.cuansampah.view.data.local
+package com.capstone.cuansampah.data.local
 
 data class ItemImageSlider(
     val title: String,

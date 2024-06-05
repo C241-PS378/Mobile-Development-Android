@@ -1,26 +1,35 @@
 package com.capstone.cuansampah.view.camera
 
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import com.capstone.cuansampah.R
+import com.capstone.cuansampah.utils.getImageUri
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 class CameraFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private lateinit var btnCapture: Button
+    private lateinit var btnTakeGallery: Button
+    private lateinit var imgCaptured: ImageView
+    private var currentImageUri: Uri? = null
+
+    companion object {
+        private const val REQUEST_CAMERA_PERMISSION = 101
+    }
+
+    private val launcherIntentCamera = registerForActivityResult(
+        ActivityResultContracts.TakePicture()
+    ) { isSuccess ->
+        if (isSuccess) {
+            showImage()
         }
     }
 
@@ -28,27 +37,51 @@ class CameraFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_camera, container, false)
+        val view = inflater.inflate(R.layout.fragment_camera, container, false)
+        btnCapture = view.findViewById(R.id.cameraBtn)
+        btnTakeGallery = view.findViewById(R.id.galleryBtn)
+        imgCaptured = view.findViewById(R.id.imagePicker)
+        btnCapture.setOnClickListener {
+            startCamera()
+        }
+        btnTakeGallery.setOnClickListener {
+            startGallery()
+        }
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CameraFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CameraFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun startCamera() {
+        val photoURI: Uri? = getImageUri(requireContext())
+        photoURI?.let {
+            currentImageUri = it
+            launcherIntentCamera.launch(it)
+        }
     }
+
+    private fun showImage() {
+        currentImageUri?.let { uri ->
+            Log.d("Image URI", "showImage: $uri")
+            view?.findViewById<ImageView>(R.id.imagePicker)?.let { imageView ->
+                imageView.setImageURI(uri)
+            }
+        }
+    }
+
+    private fun startGallery() {
+        launcherGallery.launch(
+            PickVisualMediaRequest(
+                ActivityResultContracts.PickVisualMedia.ImageOnly
+            )
+        )
+    }
+
+    private val launcherGallery =
+        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri: Uri? ->
+            if (uri != null) {
+                currentImageUri = uri
+                showImage()
+            } else {
+                Log.d("Photo Picker", getString(R.string.empty_image))
+            }
+        }
 }
