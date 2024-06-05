@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # <img align="left" alt="Cuan Sampah" title="cuan sampah" width="40px" src="https://github.com/hiqmalism/Cuan-Sampah/blob/master/app/src/main/res/drawable/logo_app.png"/></a>CUAN SAMPAH 
 
 ### Waste Commerce | Cuan Sampah
@@ -19,3 +20,6 @@
 - Jihandika Proyugo - C550D4NX1341
 - Hernanda Hiqmal Maula - A228D4KY3982
 - Yatinah - A228D4KX3992
+=======
+# Mobile-Development-Android
+>>>>>>> newrepo/main
