@@ -45,4 +45,51 @@
     <string name="open_camera">Open Camera\n</string>
     <string name="open_gallery">Open Gallery</string>
     <string name="empty_image">Image Not Found</string>
+    <string name="description">Description</string>
+    <string name="order_now">Order Now</string>
+    <string name="product_content">Product Content</string>
+    <string name="add_to_cart">Add to Cart</string>
+
+    <!--    TEMPORARY   -->
+    <string-array name="data_product">
+        <item>Botol air mineral</item>
+        <item>Botol plastik</item>
+        <item>Botol mineral</item>
+    </string-array>
+
+    <string-array name="data_price">
+        <item>Rp. 10.000,-</item>
+        <item>Rp. 13.000,-</item>
+        <item>Rp. 6.000,-</item>
+    </string-array>
+
+    <integer-array name="data_photo">
+        <item>@drawable/trash_1</item>
+        <item>@drawable/trash_2</item>
+        <item>@drawable/trash_3</item>
+    </integer-array>
+
+    <string-array name="data_category">
+        <item>Plastic</item>
+        <item>Plastic</item>
+        <item>Plastic</item>
+    </string-array>
+
+    <string-array name="data_stock">
+        <item>5 items</item>
+        <item>10 items</item>
+        <item>15 items</item>
+    </string-array>
+
+    <string-array name="data_weight">
+        <item>1.5 kg</item>
+        <item>1.5 kg</item>
+        <item>1.5 kg</item>
+    </string-array>
+
+    <string-array name="data_desc">
+        <item>Lorem ipsum dolor sit amet</item>
+        <item>Lorem ipsum dolor sit amet</item>
+        <item>Lorem ipsum dolor sit amet</item>
+    </string-array>
 </resources>
