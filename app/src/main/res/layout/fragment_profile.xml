@@ -59,12 +59,12 @@
                 android:text="@string/history"
                 android:textStyle="bold"
                 android:textSize="16sp"/>
+
             <LinearLayout
                 android:id="@+id/historyLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingHorizontal="32dp"
                 android:gravity="center">
 
                 <Button
@@ -103,6 +103,7 @@
                 android:layout_height="60dp"
                 android:layout_marginVertical="16sp"
                 android:drawableStart="@drawable/ic_profile_profile"
+                android:padding="20dp"
                 android:drawablePadding="20dp"
                 android:text="@string/profile_settings"
                 android:textStyle="bold"
@@ -115,6 +116,7 @@
                 android:layout_height="60dp"
                 android:layout_marginVertical="16sp"
                 android:drawableStart="@drawable/ic_items_profile"
+                android:padding="20dp"
                 android:drawablePadding="20dp"
                 android:text="@string/my_items"
                 android:textStyle="bold"
@@ -127,6 +129,7 @@
                 android:layout_height="60dp"
                 android:layout_marginVertical="16sp"
                 android:drawableStart="@drawable/ic_location_profile"
+                android:padding="20dp"
                 android:drawablePadding="20dp"
                 android:text="@string/my_address"
                 android:textStyle="bold"
@@ -139,6 +142,7 @@
                 android:layout_height="60dp"
                 android:layout_marginVertical="16sp"
                 android:drawableStart="@drawable/ic_nearby_profile"
+                android:padding="20dp"
                 android:drawablePadding="20dp"
                 android:text="@string/nearby_collectors"
                 android:textStyle="bold"
