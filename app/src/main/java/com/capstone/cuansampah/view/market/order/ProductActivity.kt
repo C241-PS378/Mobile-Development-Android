@@ -12,16 +12,18 @@ import com.capstone.cuansampah.databinding.ActivityProductBinding
 class ProductActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityProductBinding
+    private var product: Product? = null
 
-    val product = if (Build.VERSION.SDK_INT >= 33) {
-        intent.getParcelableExtra(KEY_PRODUCT, Product::class.java)
-    } else {
-        intent.getParcelableExtra(KEY_PRODUCT)
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        product = if (Build.VERSION.SDK_INT >= 33) {
+            intent.getParcelableExtra(KEY_PRODUCT, Product::class.java)
+        } else {
+            intent.getParcelableExtra(KEY_PRODUCT)
+        }
 
         setupView()
         setupAction()
@@ -65,15 +67,16 @@ class ProductActivity : AppCompatActivity() {
     private fun setData() {
         product?.let {
             with(binding) {
-                imageProduct.setImageResource(product.image)
-                nameProduct.text = product.name
-                priceProduct.text = product.price
-                categoryProduct.text = product.category
-                stockProduct.text = product.stock
-                weightProduct.text = product.weight
+                imageProduct.setImageResource(it.image)
+                nameProduct.text = it.name
+                priceProduct.text = it.price
+                categoryProduct.text = it.category
+                stockProduct.text = it.stock
+                weightProduct.text = it.weight
             }
         }
     }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
