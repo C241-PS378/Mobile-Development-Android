@@ -1,11 +1,10 @@
 package com.capstone.cuansampah.view.market.order
 
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
-import com.capstone.cuansampah.R
+import androidx.appcompat.app.AppCompatActivity
 import com.capstone.cuansampah.databinding.ActivityCartBinding
 
 class CartActivity : AppCompatActivity() {
@@ -32,7 +31,7 @@ class CartActivity : AppCompatActivity() {
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setBackgroundDrawable(null)
-        supportActionBar?.title = "Order"
+        supportActionBar?.title = "Cart"
     }
 
     private fun setupAction() {

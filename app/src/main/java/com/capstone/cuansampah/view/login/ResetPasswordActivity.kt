@@ -1,12 +1,11 @@
 package com.capstone.cuansampah.view.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.capstone.cuansampah.R
 import com.capstone.cuansampah.databinding.ActivityResetPasswordBinding
 
