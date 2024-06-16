@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.viewpager.widget.ViewPager
+        <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="181dp"
@@ -27,8 +27,7 @@
             app:tabIndicatorFullWidth="true"
             android:fitsSystemWindows="true"
             app:tabMode="fixed"
-            app:layout_constraintBottom_toTopOf="@id/viewPager"
-            >
+            app:layout_constraintBottom_toTopOf="@id/viewPager">
         </com.google.android.material.tabs.TabLayout>
 
         <TextView
@@ -36,8 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Our Services"
-            android:textSize="18dp"
+            android:text="@string/our_services"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/viewPager" />

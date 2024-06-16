@@ -4,24 +4,26 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowInsets
-import android.view.WindowManager
+import android.widget.Toast
+import com.capstone.cuansampah.R
 import com.capstone.cuansampah.data.local.Product
 import com.capstone.cuansampah.databinding.ActivityProductBinding
 
 class ProductActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityProductBinding
+    private var product: Product? = null
 
-    val product = if (Build.VERSION.SDK_INT >= 33) {
-        intent.getParcelableExtra(KEY_PRODUCT, Product::class.java)
-    } else {
-        intent.getParcelableExtra(KEY_PRODUCT)
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        product = if (Build.VERSION.SDK_INT >= 33) {
+            intent.getParcelableExtra(KEY_PRODUCT, Product::class.java)
+        } else {
+            intent.getParcelableExtra(KEY_PRODUCT)
+        }
 
         setupView()
         setupAction()
@@ -29,17 +31,9 @@ class ProductActivity : AppCompatActivity() {
     }
 
     private fun setupView() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.insetsController?.hide(WindowInsets.Type.statusBars())
-        } else {
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-            )
-        }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setBackgroundDrawable(null)
-        supportActionBar?.title = "Product"
+        supportActionBar?.title = getString(R.string.tag_product)
     }
 
     private fun setupAction() {
@@ -54,10 +48,7 @@ class ProductActivity : AppCompatActivity() {
 
         binding.cartButton.setOnClickListener {
             product?.let {
-                val intent = Intent(this, CartActivity::class.java).apply {
-                    putExtra(KEY_PRODUCT, it)
-                }
-                startActivity(intent)
+                Toast.makeText(this, "Product added to cart", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -65,15 +56,16 @@ class ProductActivity : AppCompatActivity() {
     private fun setData() {
         product?.let {
             with(binding) {
-                imageProduct.setImageResource(product.image)
-                nameProduct.text = product.name
-                priceProduct.text = product.price
-                categoryProduct.text = product.category
-                stockProduct.text = product.stock
-                weightProduct.text = product.weight
+                imageProduct.setImageResource(it.image)
+                nameProduct.text = it.name
+                priceProduct.text = it.price
+                categoryProduct.text = it.category
+                stockProduct.text = it.stock
+                weightProduct.text = it.weight
             }
         }
     }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true

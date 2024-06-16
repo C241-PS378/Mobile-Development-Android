@@ -45,14 +45,6 @@ class MarketFragment : Fragment() {
         }
     }
 
-    private fun setupRecyclerView() {
-        with(binding) {
-            rvProduct.setHasFixedSize(true)
-            list.addAll(getListProducts())
-            showRecyclerList()
-        }
-    }
-
     private fun getListProducts(): ArrayList<Product> {
         val dataName = resources.getStringArray(R.array.data_product)
         val dataPrice = resources.getStringArray(R.array.data_price)
@@ -78,8 +70,10 @@ class MarketFragment : Fragment() {
         return listProduct
     }
 
-    private fun showRecyclerList() {
+    private fun setupRecyclerView() {
         with(binding) {
+            rvProduct.setHasFixedSize(true)
+            list.addAll(getListProducts())
             rvProduct.layoutManager = GridLayoutManager(context, 2)
             val listProductAdapter = ProductAdapter(list)
             rvProduct.adapter = listProductAdapter

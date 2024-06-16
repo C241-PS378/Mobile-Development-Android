@@ -59,6 +59,7 @@ class ProfileFragment : Fragment() {
         binding.btnNearbyCollectors.setOnClickListener {}
         binding.btnLogout.setOnClickListener {
             startActivity(Intent(context, OnboardingActivity::class.java))
+            activity?.finish()
         }
     }
 

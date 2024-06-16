@@ -51,8 +51,8 @@ class CameraFragment : Fragment() {
     }
 
     private fun startCamera() {
-        val photoURI: Uri? = getImageUri(requireContext())
-        photoURI?.let {
+        val photoURI: Uri = getImageUri(requireContext())
+        photoURI.let {
             currentImageUri = it
             launcherIntentCamera.launch(it)
         }
@@ -61,9 +61,7 @@ class CameraFragment : Fragment() {
     private fun showImage() {
         currentImageUri?.let { uri ->
             Log.d("Image URI", "showImage: $uri")
-            view?.findViewById<ImageView>(R.id.imagePicker)?.let { imageView ->
-                imageView.setImageURI(uri)
-            }
+            view?.findViewById<ImageView>(R.id.imagePicker)?.setImageURI(uri)
         }
     }
 

@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/history"
                 android:textStyle="bold"
-                android:textSize="16sp"/>
+                style="@style/TextAppearance.MaterialComponents.Body1"/>
 
             <LinearLayout
                 android:id="@+id/historyLayout"
@@ -85,7 +85,6 @@
                     android:text="@string/sold"
                     android:textColor="@color/emerald"
                     style="?android:attr/buttonBarButtonStyle"/>
-
                 <Button
                     android:id="@+id/btn_bought"
                     android:layout_width="wrap_content"
@@ -97,11 +96,16 @@
                     style="?android:attr/buttonBarButtonStyle"/>
             </LinearLayout>
 
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnProfileSettings"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginVertical="16sp"
+                android:layout_marginTop="16sp"
+                android:backgroundTint="@color/md_theme_background"
                 android:drawableStart="@drawable/ic_profile_profile"
                 android:padding="20dp"
                 android:drawablePadding="20dp"
@@ -114,7 +118,7 @@
                 android:id="@+id/btnYourItems"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginVertical="16sp"
+                android:backgroundTint="@color/md_theme_background"
                 android:drawableStart="@drawable/ic_items_profile"
                 android:padding="20dp"
                 android:drawablePadding="20dp"
@@ -127,7 +131,7 @@
                 android:id="@+id/btnYourLocation"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginVertical="16sp"
+                android:backgroundTint="@color/md_theme_background"
                 android:drawableStart="@drawable/ic_location_profile"
                 android:padding="20dp"
                 android:drawablePadding="20dp"
@@ -140,7 +144,7 @@
                 android:id="@+id/btnNearbyCollectors"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginVertical="16sp"
+                android:backgroundTint="@color/md_theme_background"
                 android:drawableStart="@drawable/ic_nearby_profile"
                 android:padding="20dp"
                 android:drawablePadding="20dp"
@@ -153,8 +157,7 @@
                 android:id="@+id/btnLogout"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@color/on_error"
-                android:layout_marginVertical="16dp"
+                android:backgroundTint="@color/on_error"
                 android:padding="20dp"
                 android:drawableStart="@drawable/ic_logout"
                 android:drawablePadding="20dp"

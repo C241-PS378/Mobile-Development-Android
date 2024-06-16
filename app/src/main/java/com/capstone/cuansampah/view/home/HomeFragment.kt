@@ -1,19 +1,17 @@
 package com.capstone.cuansampah.view.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewpager.widget.ViewPager
+import androidx.fragment.app.Fragment
 import com.capstone.cuansampah.R
+import com.capstone.cuansampah.data.local.ItemImageSlider
 import com.capstone.cuansampah.databinding.ActivityHomeBinding
 import com.capstone.cuansampah.view.adapter.SliderHomeAdapter
-import com.capstone.cuansampah.data.local.ItemImageSlider
 
 
 class HomeFragment : Fragment() {
-    private lateinit var viewPager: ViewPager
     private var _binding: ActivityHomeBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
