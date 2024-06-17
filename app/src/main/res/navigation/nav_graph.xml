@@ -31,4 +31,19 @@
         android:name="com.capstone.cuansampah.view.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/waste_information"
+        android:name="com.capstone.cuansampah.view.camera.WasteInformationFragment"
+        android:label="Waste Information"
+        tools:layout="@layout/fragment_waste_information" />
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="com.capstone.cuansampah.view.history.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/navigation_maps"
+        android:name="com.capstone.cuansampah.view.camera.MapsFragment"
+        android:label="Maps"
+        tools:layout="@layout/fragment_maps" />
 </navigation>
