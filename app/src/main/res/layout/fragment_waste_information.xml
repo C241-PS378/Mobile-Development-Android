@@ -103,8 +103,8 @@
 
     <ImageView
         android:id="@+id/ic_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="42dp"
+        android:layout_height="55dp"
         android:layout_marginTop="12dp"
         android:src="@drawable/ic_weight_nofill"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,14 +114,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edt_weight_input"
-        android:layout_width="218dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="12dp"
-        android:hint="Enter weight"
+        android:layout_width="80dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintHorizontal_bias="0.059"
         app:layout_constraintStart_toEndOf="@+id/ic_weight"
         app:layout_constraintTop_toBottomOf="@+id/product_weight">
 
@@ -133,52 +131,86 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/product_address"
+        android:id="@+id/kg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/kg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toEndOf="@+id/edt_weight_input"
+        app:layout_constraintTop_toBottomOf="@+id/product_weight" />
+
+    <TextView
+        android:id="@+id/title_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Address"
+        android:text="@string/title_address"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ic_weight" />
 
-    <TextView
-        android:id="@+id/user_address"
+    <Button
+        android:id="@+id/openMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="User Address"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/product_address" />
-
-    <Button
-        android:id="@+id/openMap"
-        android:layout_width="53dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@android:color/white"
+        android:layout_marginEnd="184dp"
         android:drawableLeft="@drawable/location"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:text="@string/open_maps"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/product_address"
-        app:layout_constraintTop_toBottomOf="@+id/edt_weight_input" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_address" />
+
+    <TextView
+        android:id="@+id/seller_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/seller_address"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/openMap" />
+
+    <TextView
+        android:id="@+id/title_collector_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/title_collector_address"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seller_address" />
+    <TextView
+        android:id="@+id/collector_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/collector_address"
+        android:textSize="12sp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_collector_address" />
 
     <Button
         android:id="@+id/btn_sell_waste"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
         android:layout_marginTop="16dp"
-        android:background="@android:color/holo_blue_light"
-        android:text="Sell"
+        android:text="@string/sell_to_collector"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_address" />
-
+        app:layout_constraintTop_toBottomOf="@+id/collector_address" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

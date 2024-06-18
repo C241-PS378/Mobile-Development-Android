@@ -9,7 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.capstone.cuansampah.R
 import com.capstone.cuansampah.databinding.FragmentCameraBinding
 import com.capstone.cuansampah.utils.getImageUri
@@ -17,6 +21,7 @@ import com.capstone.cuansampah.utils.getImageUri
 class CameraFragment : Fragment() {
     private var currentImageUri: Uri? = null
     private var _binding: FragmentCameraBinding? = null
+
     private val binding get() = _binding!!
     private val launcherIntentCamera = registerForActivityResult(
         ActivityResultContracts.TakePicture()
@@ -75,12 +80,26 @@ class CameraFragment : Fragment() {
     private fun showImage() {
         currentImageUri?.let { uri ->
             Log.d("Image URI", "showImage: $uri")
-            binding.imagePicker.setImageURI(uri)
+            currentImageUri?.let { uri ->
+                Glide.with(this)
+                    .load(uri)
+                    .apply(RequestOptions().transform(RoundedCorners(16))) // 16 is the radius in pixels
+                    .into(binding.imagePicker)
+            }
             showBtnImage(false)
             showBtnChoose(true)
-            binding.photoChoose.setOnClickListener {
+            binding.sellCollector.setOnClickListener {
                 val bundle = Bundle().apply {
                     putParcelable("imageUri", uri)
+                    putBoolean("collector", true)
+                }
+                findNavController().navigate(R.id.waste_information, bundle)
+            }
+
+            binding.sellMarket.setOnClickListener {
+                val bundle = Bundle().apply {
+                    putParcelable("imageUri", uri)
+                    putBoolean("collector", false)
                 }
                 findNavController().navigate(R.id.waste_information, bundle)
             }
@@ -93,7 +112,8 @@ class CameraFragment : Fragment() {
     }
 
     private fun showBtnChoose(isShow: Boolean) {
-        binding.photoChoose.visibility = if (isShow) View.VISIBLE else View.GONE
+        binding.sellCollector.visibility = if (isShow) View.VISIBLE else View.GONE
+        binding.sellMarket.visibility = if (isShow) View.VISIBLE else View.GONE
     }
 
     override fun onDestroyView() {

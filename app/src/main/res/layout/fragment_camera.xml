@@ -55,15 +55,29 @@
             app:layout_constraintTop_toBottomOf="@+id/imagePicker" />
 
         <Button
-            android:id="@+id/photoChoose"
+            android:id="@+id/sellMarket"
             android:layout_width="wrap_content"
             android:layout_height="42dp"
-            android:layout_marginTop="36dp"
-            android:text="@string/choose_image"
+            android:layout_marginTop="24dp"
+            android:text="@string/sell_to_market"
             android:textColor="@color/white"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.53"
+            app:layout_constraintHorizontal_bias="0.119"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagePicker"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/sellCollector"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/sell_to_collector"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.811"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imagePicker"
             tools:visibility="visible" />
