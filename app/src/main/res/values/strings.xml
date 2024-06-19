@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Cuan Sampah</string>
-
     <string name="welcome">Welcome to\nCuan Sampah</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
@@ -28,6 +27,13 @@
     <string name="title_shipping">Shipping</string>
     <string name="title_profile">Profile</string>
 
+    <string name="product_bahaya">Bahaya</string>
+    <string name="pb_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque libero elit, vitae elementum nulla placerat vitae. Nullam et massa dignissim, fermentum nisl vitae, molestie lacus. Morbi sit amet velit non ligula dictum accumsan et vel sem. suscipit lectus. Donec sodales justo sit.</string>
+    <string name="product_pengolahan">Pengolahan</string>
+    <string name="pp_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit\n . Curabitur pellentesque libero elit, vitae elementum nulla placerat vitae.</string>
+    <string name="choose_image">Pilih Gambar</string>
+    <string name="poduct_weight">Weight</string>
+    <string name="weight_icon">weight\n</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="camera_page">Camera Page</string>
@@ -78,6 +84,18 @@
     <string name="tab_completed">Completed</string>
     <string name="tab_cancelled">Cancelled</string>
     <string name="continue_button">Continue</string>
+    <string name="product_name">Botol Plastik</string>
+    <string name="product_price">Rp. 6000,-</string>
+    <string name="sell_to_market">Sell to Market</string>
+    <string name="sell_to_collector">Sell to collector</string>
+    <string name="enter_weight">Enter weight</string>
+    <string name="kg">/kg</string>
+    <string name="title_address">Your Address</string>
+    <string name="open_maps">Open Maps</string>
+    <string name="seller_address">User Address</string>
+    <string name="continue_btn">Continue</string>
+    <string name="title_collector_address">Collector Address</string>
+    <string name="collector_address">Collector Address</string>
 
     <string-array name="data_product">
         <item>Botol air mineral</item>

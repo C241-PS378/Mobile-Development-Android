@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.capstone.cuansampah.R
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         bottomNavigationView = binding.navView
 
-        val navController = findNavController(R.id.nav_host_fragment)
+        navController = findNavController(R.id.nav_host_fragment)
 
         bottomNavigationView.setupWithNavController(navController)
         setupView()
@@ -40,13 +42,22 @@ class MainActivity : AppCompatActivity() {
         inflater.inflate(R.menu.option_menu, menu)
         return true
     }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        if(item.itemId == R.id.history){
+//            val intent = Intent(this, HistoryActivity::class.java)
+//            startActivity(intent)
+//        }
+//
+//        return super.onOptionsItemSelected(item)
+//    }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.history){
-            val intent = Intent(this, HistoryActivity::class.java)
-            startActivity(intent)
+        return when (item.itemId) {
+            R.id.history -> {
+                navController.navigate(R.id.navigation_history)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
-
-        return super.onOptionsItemSelected(item)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -61,4 +72,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+//    override fun onSupportNavigateUp(): Boolean {
+//        return navController.navigateUp() || super.onSupportNavigateUp()
+//    }
 }
