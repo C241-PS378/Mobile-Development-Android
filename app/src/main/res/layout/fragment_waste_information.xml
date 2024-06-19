@@ -40,13 +40,32 @@
         android:id="@+id/product_price"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
         android:text="@string/product_price"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/product_name" />
+
+    <TextView
+        android:id="@+id/category_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/kategori_title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_price" />
+
+    <TextView
+        android:id="@+id/pk_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pk_content"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_title" />
 
     <TextView
         android:id="@+id/product_bahaya"
@@ -57,15 +76,14 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/product_price" />
+        app:layout_constraintTop_toBottomOf="@+id/pk_content" />
 
     <TextView
         android:id="@+id/pb_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="@string/pb_content"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/product_bahaya" />
 
@@ -84,7 +102,6 @@
         android:id="@+id/pp_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="@string/pp_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/product_pengolahan" />
@@ -157,13 +174,13 @@
         android:id="@+id/openMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="184dp"
         android:drawableLeft="@drawable/location"
         android:backgroundTint="@color/white"
         android:textColor="@color/black"
         android:text="@string/open_maps"
         android:visibility="visible"
+        tools:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_address" />
@@ -172,9 +189,8 @@
         android:id="@+id/seller_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="@string/seller_address"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/openMap" />
 
@@ -194,9 +210,8 @@
         android:id="@+id/collector_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="@string/collector_address"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:visibility="gone"
         tools:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
@@ -212,5 +227,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/collector_address" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
