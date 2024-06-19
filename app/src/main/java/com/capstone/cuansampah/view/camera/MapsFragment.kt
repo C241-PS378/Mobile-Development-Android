@@ -52,7 +52,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
     private var collector: Boolean? = null
     private val boundsBuilder = LatLngBounds.Builder()
     private lateinit var spinner: Spinner
-    private var selectedCollector: String? = null
     private val binding get() = _binding!!
 
     private val locationCallback = object : LocationCallback() {
@@ -123,7 +122,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
                 ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, addresses)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter
-            // Extract addresses from collectorPlace
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -134,27 +132,32 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
                     id: Long
                 ) {
                     val selectedItem = addresses[position]
-                    val selectCollector = collectorPlace[position]
-                    selectedCollector = selectCollector.address.toString()
+                    var selectCollector = collectorPlace[position]
+                    var selectedCollector = selectCollector.address
+                    Log.d("DIdalam", selectedCollector!!)
                     showToast("Selected: $selectedItem")
+                    Log.d("collector_address", selectedCollector.toString())
+                    binding.btnSaveAddress.setOnClickListener {
+                        val address = binding.edAddress.text.toString()
+                        imageUri = arguments?.getParcelable("imageUri")
+                        val bundle = Bundle().apply {
+                            putParcelable("imageUri", imageUri)
+                            putString("collector_address", selectedCollector.toString())
+                            putString("address", address)
+                            putDouble("latitude", mLastLocation.latitude)
+                            putDouble("longitude", mLastLocation.longitude)
+                            putBoolean("collector",true )
+                            putBoolean("openMap",false)
+                        }
+                        findNavController().navigate(R.id.waste_information, bundle)
+                    }
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     // Aksi jika tidak ada yang dipilih
                 }
             }
-            binding.btnSaveAddress.setOnClickListener {
-                val address = binding.edAddress.text.toString()
-                imageUri = arguments?.getParcelable("imageUri")
-                val bundle = Bundle().apply {
-                    putParcelable("imageUri", imageUri)
-                    putString("collector_address", selectedCollector)
-                    putString("address", address)
-                    putDouble("latitude", mLastLocation.latitude)
-                    putDouble("longitude", mLastLocation.longitude)
-                }
-                findNavController().navigate(R.id.waste_information, bundle)
-            }
+
         } else {
             binding.btnSaveAddress.setOnClickListener {
                 val address = binding.edAddress.text.toString()
@@ -164,6 +167,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
                     putString("address", address)
                     putDouble("latitude", mLastLocation.latitude)
                     putDouble("longitude", mLastLocation.longitude)
+                    putBoolean("collector",false )
+                    putBoolean("openMap",false)
                 }
                 findNavController().navigate(R.id.waste_information, bundle)
             }
