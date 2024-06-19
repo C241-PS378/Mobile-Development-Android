@@ -1,6 +1,5 @@
 package com.capstone.cuansampah.data.remote.response
 
-import com.capstone.cuansampah.data.local.Classification
 import com.google.gson.annotations.SerializedName
 
 data class ImageClassificationResponse(

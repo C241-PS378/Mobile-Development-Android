@@ -27,6 +27,9 @@
             android:value="AIzaSyBZjzW5Kab_AsR3m66tCyWJIJ54Yckzsxc" />
 
         <activity
+            android:name=".view.history.HistoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.market.order.CartActivity"
             android:exported="false" />
         <activity

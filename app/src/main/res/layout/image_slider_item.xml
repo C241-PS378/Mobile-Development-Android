@@ -45,7 +45,6 @@
             android:elevation="2dp" />
 
         <ImageView
-            android:id="@+id/service1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -69,7 +68,6 @@
             android:elevation="2dp" />
 
         <ImageView
-            android:id="@+id/service2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -78,7 +76,6 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/service3_container"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginStart="56dp"
@@ -94,7 +91,6 @@
             android:background="@drawable/shadow_rect"
             android:elevation="2dp"/>
         <ImageView
-            android:id="@+id/service3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"

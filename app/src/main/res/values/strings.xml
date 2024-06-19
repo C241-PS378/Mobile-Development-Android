@@ -31,16 +31,8 @@
     <string name="pb_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque libero elit, vitae elementum nulla placerat vitae. Nullam et massa dignissim, fermentum nisl vitae, molestie lacus. Morbi sit amet velit non ligula dictum accumsan et vel sem. suscipit lectus. Donec sodales justo sit.</string>
     <string name="product_pengolahan">Pengolahan</string>
     <string name="pp_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit\n . Curabitur pellentesque libero elit, vitae elementum nulla placerat vitae.</string>
-    <string name="choose_image">Pilih Gambar</string>
     <string name="poduct_weight">Weight</string>
-    <string name="weight_icon">weight\n</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="camera_page">Camera Page</string>
-    <string name="home_page">Home Page</string>
-    <string name="market_page">Market Page</string>
-    <string name="pickup_page">Pickup Page</string>
-    <string name="profile_page">Profile Page</string>
     <string name="search">Search product…</string>
     <string name="history">History</string>
     <string name="cart">Cart</string>
@@ -88,7 +80,6 @@
     <string name="product_price">Rp. 13.000,-</string>
     <string name="sell_to_market">Sell to Market</string>
     <string name="sell_to_collector">Sell to collector</string>
-    <string name="enter_weight">Enter weight</string>
     <string name="kg">/kg</string>
     <string name="title_address">Your Address</string>
     <string name="open_maps">Open Maps</string>
@@ -98,6 +89,7 @@
     <string name="collector_address">Collector Address</string>
     <string name="kategori_title">Kategori</string>
     <string name="pk_content">Kategori produk</string>
+    <string name="hint_address">Enter your address detail</string>
 
     <string-array name="data_product">
         <item>Botol air mineral</item>

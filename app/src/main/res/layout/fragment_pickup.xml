@@ -7,14 +7,12 @@
     android:orientation="vertical"
     tools:context=".view.pickup.PickupFragment">
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/pickup_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorOnPrimary"
         app:tabTextColor="@color/tab_color_selector" />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/pickup_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>

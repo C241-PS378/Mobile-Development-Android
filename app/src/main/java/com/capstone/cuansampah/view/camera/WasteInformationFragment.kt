@@ -1,7 +1,5 @@
 package com.capstone.cuansampah.view.camera
 
-import android.app.Activity
-import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -20,7 +18,6 @@ import com.capstone.cuansampah.R
 import com.capstone.cuansampah.data.remote.response.ResultResponse
 import com.capstone.cuansampah.databinding.FragmentWasteInformationBinding
 import com.capstone.cuansampah.utils.uriToFile
-import com.capstone.cuansampah.view.market.order.ProductActivity
 
 
 class WasteInformationFragment : Fragment() {
@@ -38,7 +35,7 @@ class WasteInformationFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentWasteInformationBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -47,7 +44,7 @@ class WasteInformationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val factory = ImageClassificationViewModelFactory.getInstance(this)
-        viewModel = ViewModelProvider(this, factory).get(ImageClassificationViewModel::class.java)
+        viewModel = ViewModelProvider(this, factory)[ImageClassificationViewModel::class.java]
         imageUri = arguments?.getParcelable("imageUri")
         imageUri?.let { uri ->
             Glide.with(this)

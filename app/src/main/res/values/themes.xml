@@ -31,7 +31,4 @@
         <item name="android:fontFamily">@font/font_family_poppins</item>
         <item name="fontFamily">@font/font_family_poppins</item>
     </style>
-    <style name="Button.White" parent="ThemeOverlay.AppCompat">
-        <item name="colorAccent">@color/md_theme_onSecondary</item>
-    </style>
 </resources>

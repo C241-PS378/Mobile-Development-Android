@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -45,7 +44,7 @@ class CameraFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCameraBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -62,8 +61,8 @@ class CameraFragment : Fragment() {
     }
 
     private fun startCamera() {
-        val photoURI: Uri? = getImageUri(requireContext())
-        photoURI?.let {
+        val photoURI: Uri = getImageUri(requireContext())
+        photoURI.let {
             currentImageUri = it
             launcherIntentCamera.launch(it)
         }

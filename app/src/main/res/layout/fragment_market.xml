@@ -21,7 +21,6 @@
     </com.google.android.material.search.SearchBar>
 
     <com.google.android.material.search.SearchView
-        android:id="@+id/search_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:hint="@string/search"
@@ -47,7 +46,6 @@
         app:layout_constraintTop_toTopOf="@id/search_bar"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_product"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -58,7 +56,6 @@
         app:layout_constraintTop_toBottomOf="@id/search_bar"/>
 
     <ProgressBar
-        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"

@@ -20,20 +20,26 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 import com.capstone.cuansampah.R
 import com.capstone.cuansampah.data.local.User
 import com.capstone.cuansampah.databinding.FragmentMapsBinding
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.gms.location.*
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationListener
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.*
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
 import java.io.IOException
 import java.util.Locale
 
@@ -65,7 +71,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentMapsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -132,9 +138,9 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
                     id: Long
                 ) {
                     val selectedItem = addresses[position]
-                    var selectCollector = collectorPlace[position]
-                    var selectedCollector = selectCollector.address
-                    Log.d("DIdalam", selectedCollector!!)
+                    val selectCollector = collectorPlace[position]
+                    val selectedCollector = selectCollector.address
+                    Log.d("DIdalam", selectedCollector)
                     showToast("Selected: $selectedItem")
                     Log.d("collector_address", selectedCollector.toString())
                     binding.btnSaveAddress.setOnClickListener {
@@ -142,7 +148,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
                         imageUri = arguments?.getParcelable("imageUri")
                         val bundle = Bundle().apply {
                             putParcelable("imageUri", imageUri)
-                            putString("collector_address", selectedCollector.toString())
+                            putString("collector_address", selectedCollector)
                             putString("address", address)
                             putDouble("latitude", mLastLocation.latitude)
                             putDouble("longitude", mLastLocation.longitude)
@@ -176,7 +182,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
     }
 
     private fun showCollectorAddress(isShow: Boolean) {
-        binding.titleAddressCollector.visibility = if (isShow) View.VISIBLE else View.GONE
+        binding.titleAddress.visibility = if (isShow) View.VISIBLE else View.GONE
         binding.spinnerLocations.visibility = if (isShow) View.VISIBLE else View.GONE
     }
 
@@ -216,7 +222,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
     }
 
     @Synchronized
-    protected fun buildGoogleApiClient() {
+    private fun buildGoogleApiClient() {
         mGoogleApiClient = GoogleApiClient.Builder(requireContext())
             .addConnectionCallbacks(this)
             .addOnConnectionFailedListener(this)
@@ -276,7 +282,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
         try {
             val addressList: List<Address>? =
                 geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1)
-            if (addressList != null && addressList.isNotEmpty()) {
+            if (!addressList.isNullOrEmpty()) {
                 val address = addressList[0]
                 binding.edAddress.setText(address.getAddressLine(0))
             } else {

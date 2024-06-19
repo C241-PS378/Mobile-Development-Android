@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.capstone.cuansampah.R
 import com.capstone.cuansampah.databinding.ActivityMainBinding
 import com.capstone.cuansampah.view.history.HistoryActivity
+import com.capstone.cuansampah.view.market.order.CartActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -53,7 +54,11 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.history -> {
-                navController.navigate(R.id.navigation_history)
+                startActivity(Intent(this, HistoryActivity::class.java))
+                true
+            }
+            R.id.cart_menu -> {
+                startActivity(Intent(this, CartActivity::class.java))
                 true
             }
             else -> super.onOptionsItemSelected(item)
