@@ -26,6 +26,7 @@
     <string name="title_camera">Camera</string>
     <string name="title_shipping">Shipping</string>
     <string name="title_profile">Profile</string>
+    <string name="confirmation_header">Confirmation</string>
 
     <string name="product_bahaya">Bahaya</string>
     <string name="pb_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque libero elit, vitae elementum nulla placerat vitae. Nullam et massa dignissim, fermentum nisl vitae, molestie lacus. Morbi sit amet velit non ligula dictum accumsan et vel sem. suscipit lectus. Donec sodales justo sit.</string>
@@ -53,6 +54,13 @@
     <string name="product_content">Product Content</string>
     <string name="add_to_cart">Add to Cart</string>
     <string name="delivered_to">Delivered to</string>
+
+    <string name="waste_detail">Waste Detail</string>
+    <string name="total_income">Total Income</string>
+    <string name="address_detail">Address Detail</string>
+    <string name="done">Done</string>
+    <string name="see_detail">See Detail</string>
+
 
     <!--    TEMPORARY   -->
     <string name="address">
