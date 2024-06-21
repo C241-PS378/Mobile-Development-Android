@@ -2,18 +2,23 @@ package com.capstone.cuansampah.view.profile
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.commit
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.capstone.cuansampah.R
 import com.capstone.cuansampah.databinding.FragmentProfileBinding
+import com.capstone.cuansampah.view.login.LoginViewModel
 import com.capstone.cuansampah.view.onboarding.OnboardingActivity
-import com.capstone.cuansampah.view.pickup.PickupFragment
+import com.capstone.cuansampah.view.viewModel.ViewModelFactory
 
 class ProfileFragment : Fragment() {
+
+    private val viewModel: LoginViewModel by viewModels {
+        ViewModelFactory.getInstance(requireContext())
+    }
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
@@ -55,7 +60,9 @@ class ProfileFragment : Fragment() {
         binding.btnYourLocation.setOnClickListener {}
         binding.btnNearbyCollectors.setOnClickListener {}
         binding.btnLogout.setOnClickListener {
-            startActivity(Intent(context, OnboardingActivity::class.java))
+            viewModel.logout()
+            val intent = Intent(activity, OnboardingActivity::class.java)
+            startActivity(intent)
             activity?.finish()
         }
     }
