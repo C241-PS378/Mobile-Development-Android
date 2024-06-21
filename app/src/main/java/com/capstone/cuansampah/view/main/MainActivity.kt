@@ -43,14 +43,7 @@ class MainActivity : AppCompatActivity() {
         inflater.inflate(R.menu.option_menu, menu)
         return true
     }
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        if(item.itemId == R.id.history){
-//            val intent = Intent(this, HistoryActivity::class.java)
-//            startActivity(intent)
-//        }
-//
-//        return super.onOptionsItemSelected(item)
-//    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.history -> {

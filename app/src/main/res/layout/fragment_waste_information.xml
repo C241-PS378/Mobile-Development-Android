@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".view.home.HomeFragment"
     android:scrollbars="none">
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -131,12 +130,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edt_weight_input"
-        android:layout_width="80dp"
-        android:layout_height="55dp"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
         app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
         app:layout_constraintStart_toEndOf="@+id/ic_weight"
         app:layout_constraintTop_toBottomOf="@+id/product_weight">
 
@@ -152,8 +150,6 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="28dp"
         android:text="@string/kg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toEndOf="@+id/edt_weight_input"
         app:layout_constraintTop_toBottomOf="@+id/product_weight" />
 
@@ -215,14 +211,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_collector_address" />
 
-    <Button
+    <com.capstone.cuansampah.view.customview.FilledButton
         android:id="@+id/btn_sell_waste"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="16dp"
         android:text="@string/sell_to_collector"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:textAllCaps="false"
         app:layout_constraintTop_toBottomOf="@+id/collector_address" />
 
     <ProgressBar

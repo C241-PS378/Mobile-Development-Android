@@ -47,7 +47,7 @@ class OrderActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
+        super.onBackPressedDispatcher
         return true
     }
 }

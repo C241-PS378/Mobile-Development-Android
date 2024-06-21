@@ -45,7 +45,7 @@
     <string name="picked_up">Picked Up</string>
     <string name="bought">Bought</string>
     <string name="sold">Sold</string>
-    <string name="open_camera">Open Camera\n</string>
+    <string name="open_camera">Open Camera</string>
     <string name="open_gallery">Open Gallery</string>
     <string name="empty_image">Image Not Found</string>
     <string name="description">Description</string>
@@ -76,9 +76,8 @@
     <string name="tab_completed">Completed</string>
     <string name="tab_cancelled">Cancelled</string>
     <string name="continue_button">Continue</string>
-    <string name="product_name">Botol Plastik</string>
-    <string name="product_price">Rp. 13.000,-</string>
-    <string name="sell_to_market">Sell to Market</string>
+    <string name="product_name">Nama Sampah</string>
+    <string name="product_price">Rp. XX.XXX,-</string>
     <string name="sell_to_collector">Sell to collector</string>
     <string name="kg">/kg</string>
     <string name="title_address">Your Address</string>
@@ -90,6 +89,7 @@
     <string name="kategori_title">Kategori</string>
     <string name="pk_content">Kategori produk</string>
     <string name="hint_address">Enter your address detail</string>
+    <string name="sell_to_market">Sell to Market</string>
 
     <string-array name="data_product">
         <item>Botol air mineral</item>

@@ -42,14 +42,14 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setupHistoryAction() {
-        binding.btnPickedup.setOnClickListener {
+        binding.pickedupButton.setOnClickListener {
             parentFragmentManager.commit {
                 replace(R.id.nav_host_fragment, PickupFragment())
                 addToBackStack(null)
             }
         }
-        binding.btnSold.setOnClickListener {}
-        binding.btnBought.setOnClickListener {}
+        binding.soldButton.setOnClickListener {}
+        binding.boughtButton.setOnClickListener {}
     }
 
     private fun setupSettingAction() {

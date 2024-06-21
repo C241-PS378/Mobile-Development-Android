@@ -67,7 +67,7 @@ class ProductActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
+        super.onBackPressedDispatcher
         return true
     }
 

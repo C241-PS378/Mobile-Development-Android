@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.camera.MapsActivity">
 
     <fragment
         android:id="@+id/map"
@@ -77,3 +78,4 @@
         android:layout_margin="16dp"
         android:background="@android:color/holo_blue_light"/>
 </LinearLayout>
+

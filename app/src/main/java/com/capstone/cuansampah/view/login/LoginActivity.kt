@@ -41,9 +41,8 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    @Suppress("DEPRECATION")
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
+        super.onBackPressedDispatcher
         return true
     }
 }
