@@ -27,4 +27,25 @@ object ApiConfig {
             .build()
         return retrofit.create(ApiService::class.java)
     }
+    fun getApiServiceUser(token: String): ApiService{
+        val loggingInterceptor =
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        val authInterceptor = Interceptor { chain ->
+            val req = chain.request()
+            val requestHeaders = req.newBuilder()
+                .header("Authorization", "Bearer $token")
+                .build()
+            chain.proceed(requestHeaders)
+        }
+        val client = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .build()
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://backend-2g7newb35q-et.a.run.app/api/auth/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+        return retrofit.create(ApiService::class.java)
+    }
 }

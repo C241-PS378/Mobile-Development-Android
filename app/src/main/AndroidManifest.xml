@@ -19,6 +19,9 @@
         android:theme="@style/Theme.CuanSampah"
         tools:targetApi="tiramisu">
         <activity
+            android:name=".view.market.seller.ConfirmationActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.camera.MapsActivity"
             android:exported="false" />
         <activity
@@ -50,9 +53,9 @@
         <activity
             android:name=".view.login.ResetPasswordActivity"
             android:exported="false" />
-        <activity
-            android:name=".view.onboarding.OnboardingActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".view.onboarding.OnboardingActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".view.register.RegisterActivity"
             android:exported="false" />
@@ -60,7 +63,7 @@
             android:name=".view.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".view.main.MainActivity"
+            android:name=".view.onboarding.OnboardingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

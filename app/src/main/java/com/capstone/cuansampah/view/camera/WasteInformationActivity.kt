@@ -17,6 +17,7 @@ import com.capstone.cuansampah.data.remote.response.ResultResponse
 import com.capstone.cuansampah.databinding.ActivityWasteInformationBinding
 import com.capstone.cuansampah.utils.uriToFile
 import com.capstone.cuansampah.view.market.MarketFragment
+import com.capstone.cuansampah.view.market.seller.ConfirmationActivity
 
 class WasteInformationActivity : AppCompatActivity() {
 
@@ -98,6 +99,10 @@ class WasteInformationActivity : AppCompatActivity() {
         } else {
             showCollectorAddress(true)
             binding.collectorAddress.text = collector_address
+            binding.btnSellWaste.setOnClickListener {
+                val intent = Intent(this, ConfirmationActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         binding.openMap.setOnClickListener {

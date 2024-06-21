@@ -88,4 +88,3 @@ class MarketFragment : Fragment() {
         }
     }
 }
-
