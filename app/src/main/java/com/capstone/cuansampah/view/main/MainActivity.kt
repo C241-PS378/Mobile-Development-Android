@@ -33,9 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupView(){
-        supportActionBar?.apply {
-            setBackgroundDrawable(null)
-        }
+        setSupportActionBar(binding.toolbar)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -70,7 +68,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-//    override fun onSupportNavigateUp(): Boolean {
-//        return navController.navigateUp() || super.onSupportNavigateUp()
-//    }
+
 }

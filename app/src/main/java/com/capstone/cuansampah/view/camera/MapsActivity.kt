@@ -395,7 +395,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        super.onBackPressedDispatcher
+        onBackPressed()
         return true
     }
 

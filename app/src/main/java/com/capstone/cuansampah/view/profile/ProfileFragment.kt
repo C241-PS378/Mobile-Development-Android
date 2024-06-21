@@ -43,10 +43,7 @@ class ProfileFragment : Fragment() {
 
     private fun setupHistoryAction() {
         binding.pickedupButton.setOnClickListener {
-            parentFragmentManager.commit {
-                replace(R.id.nav_host_fragment, PickupFragment())
-                addToBackStack(null)
-            }
+
         }
         binding.soldButton.setOnClickListener {}
         binding.boughtButton.setOnClickListener {}
