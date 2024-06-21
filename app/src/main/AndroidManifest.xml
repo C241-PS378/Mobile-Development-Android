@@ -19,6 +19,15 @@
         android:theme="@style/Theme.CuanSampah"
         tools:targetApi="tiramisu">
         <activity
+            android:name=".view.market.seller.ConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.camera.MapsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.camera.WasteInformationActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.market.seller.SuccessConfirmationActivity"
             android:exported="false" />
 
@@ -26,6 +35,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBZjzW5Kab_AsR3m66tCyWJIJ54Yckzsxc" />
 
+        <activity
+            android:name=".view.history.HistoryActivity"
+            android:exported="false" />
         <activity
             android:name=".view.market.order.CartActivity"
             android:exported="false" />
@@ -41,9 +53,9 @@
         <activity
             android:name=".view.login.ResetPasswordActivity"
             android:exported="false" />
-        <activity
-            android:name=".view.onboarding.OnboardingActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".view.onboarding.OnboardingActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".view.register.RegisterActivity"
             android:exported="false" />
@@ -51,8 +63,14 @@
             android:name=".view.login.LoginActivity"
             android:exported="false" />
         <activity
+<<<<<<< HEAD
             android:name=".view.main.MainActivity"
+            android:exported="true"
+            android:theme="@style/MainActivityTheme">
+=======
+            android:name=".view.onboarding.OnboardingActivity"
             android:exported="true">
+>>>>>>> origin/master
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

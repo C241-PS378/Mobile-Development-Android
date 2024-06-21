@@ -1,6 +1,6 @@
 package com.capstone.cuansampah.view.camera
 
-import androidx.fragment.app.Fragment
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.capstone.cuansampah.data.di.Injection
@@ -21,10 +21,10 @@ class ImageClassificationViewModelFactory private constructor(
 
     companion object {
         private var instance: ImageClassificationViewModelFactory? = null
-        fun getInstance(fragment: Fragment): ImageClassificationViewModelFactory {
+        fun getInstance(context: Context): ImageClassificationViewModelFactory {
             return instance ?: synchronized(this) {
                 instance ?: ImageClassificationViewModelFactory(
-                    Injection.provideImageClassificationRepository(fragment.requireContext())
+                    Injection.provideImageClassificationRepository(context)
                 ).also { instance = it }
             }
         }

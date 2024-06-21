@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.capstone.cuansampah.R
 import com.capstone.cuansampah.databinding.ActivityMainBinding
 import com.capstone.cuansampah.view.history.HistoryActivity
+import com.capstone.cuansampah.view.market.order.CartActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -32,9 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupView(){
-        supportActionBar?.apply {
-            setBackgroundDrawable(null)
-        }
+        setSupportActionBar(binding.toolbar)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -42,18 +41,15 @@ class MainActivity : AppCompatActivity() {
         inflater.inflate(R.menu.option_menu, menu)
         return true
     }
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        if(item.itemId == R.id.history){
-//            val intent = Intent(this, HistoryActivity::class.java)
-//            startActivity(intent)
-//        }
-//
-//        return super.onOptionsItemSelected(item)
-//    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.history -> {
-                navController.navigate(R.id.navigation_history)
+                startActivity(Intent(this, HistoryActivity::class.java))
+                true
+            }
+            R.id.cart_menu -> {
+                startActivity(Intent(this, CartActivity::class.java))
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -72,7 +68,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-//    override fun onSupportNavigateUp(): Boolean {
-//        return navController.navigateUp() || super.onSupportNavigateUp()
-//    }
+
 }

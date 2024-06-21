@@ -1,6 +1,7 @@
 package com.capstone.cuansampah.view.camera
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
@@ -10,22 +11,16 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Looper
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 import com.capstone.cuansampah.R
 import com.capstone.cuansampah.data.local.User
-import com.capstone.cuansampah.databinding.FragmentMapsBinding
+import com.capstone.cuansampah.databinding.ActivityMapsBinding
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.*
@@ -35,9 +30,9 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import java.io.IOException
-import java.util.Locale
+import java.util.*
 
-class MapsFragment : Fragment(), OnMapReadyCallback,
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
     LocationListener, GoogleApiClient.ConnectionCallbacks,
     GoogleApiClient.OnConnectionFailedListener {
 
@@ -48,33 +43,19 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
     private var mCurrLocationMarker: Marker? = null
     private var mGoogleApiClient: GoogleApiClient? = null
     private var mFusedLocationClient: FusedLocationProviderClient? = null
-    private var _binding: FragmentMapsBinding? = null
     private var collector: Boolean? = null
     private val boundsBuilder = LatLngBounds.Builder()
+    private lateinit var binding: ActivityMapsBinding
     private lateinit var spinner: Spinner
-    private val binding get() = _binding!!
 
-    private val locationCallback = object : LocationCallback() {
-        override fun onLocationResult(locationResult: LocationResult) {
-            for (location in locationResult.locations) {
-                onLocationChanged(location)
-            }
-        }
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMapsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentMapsBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-        collector = arguments?.getBoolean("collector")
+        collector = intent.getBooleanExtra("collector", false)
         Log.d("Cocc", collector.toString())
         if (collector == true) {
             showCollectorAddress(true)
@@ -119,7 +100,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
             )
             val addresses = collectorPlace.map { it.address }.toTypedArray()
             val adapter =
-                ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, addresses)
+                ArrayAdapter(this, android.R.layout.simple_spinner_item, addresses)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -132,24 +113,24 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
                     id: Long
                 ) {
                     val selectedItem = addresses[position]
-                    var selectCollector = collectorPlace[position]
-                    var selectedCollector = selectCollector.address
-                    Log.d("DIdalam", selectedCollector!!)
+                    val selectCollector = collectorPlace[position]
+                    val selectedCollector = selectCollector.address
+                    Log.d("DIdalam", selectedCollector)
                     showToast("Selected: $selectedItem")
-                    Log.d("collector_address", selectedCollector.toString())
+                    Log.d("collector_address", selectedCollector)
                     binding.btnSaveAddress.setOnClickListener {
                         val address = binding.edAddress.text.toString()
-                        imageUri = arguments?.getParcelable("imageUri")
-                        val bundle = Bundle().apply {
-                            putParcelable("imageUri", imageUri)
-                            putString("collector_address", selectedCollector.toString())
-                            putString("address", address)
-                            putDouble("latitude", mLastLocation.latitude)
-                            putDouble("longitude", mLastLocation.longitude)
-                            putBoolean("collector",true )
-                            putBoolean("openMap",false)
+                        imageUri = intent.getParcelableExtra("imageUri")
+                        val intent = Intent(this@MapsActivity, WasteInformationActivity::class.java).apply {
+                            putExtra("imageUri", imageUri)
+                            putExtra("collector_address", selectedCollector)
+                            putExtra("address", address)
+                            putExtra("latitude", mLastLocation.latitude)
+                            putExtra("longitude", mLastLocation.longitude)
+                            putExtra("collector", true)
+                            putExtra("openMap", false)
                         }
-                        findNavController().navigate(R.id.waste_information, bundle)
+                        startActivity(intent)
                     }
                 }
 
@@ -161,27 +142,43 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
         } else {
             binding.btnSaveAddress.setOnClickListener {
                 val address = binding.edAddress.text.toString()
-                imageUri = arguments?.getParcelable("imageUri")
-                val bundle = Bundle().apply {
-                    putParcelable("imageUri", imageUri)
-                    putString("address", address)
-                    putDouble("latitude", mLastLocation.latitude)
-                    putDouble("longitude", mLastLocation.longitude)
-                    putBoolean("collector",false )
-                    putBoolean("openMap",false)
+                imageUri = intent.getParcelableExtra("imageUri")
+                val intent = Intent(this@MapsActivity, WasteInformationActivity::class.java).apply {
+                    putExtra("imageUri", imageUri)
+                    putExtra("address", address)
+                    putExtra("latitude", mLastLocation.latitude)
+                    putExtra("longitude", mLastLocation.longitude)
+                    putExtra("collector", false)
+                    putExtra("openMap", false)
                 }
-                findNavController().navigate(R.id.waste_information, bundle)
+                startActivity(intent)
+            }
+        }
+
+        setupView()
+    }
+
+    private fun setupView() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setBackgroundDrawable(null)
+        supportActionBar?.title = "Address"
+    }
+
+    private val locationCallback = object : LocationCallback() {
+        override fun onLocationResult(locationResult: LocationResult) {
+            for (location in locationResult.locations) {
+                onLocationChanged(location)
             }
         }
     }
 
     private fun showCollectorAddress(isShow: Boolean) {
-        binding.titleAddressCollector.visibility = if (isShow) View.VISIBLE else View.GONE
+        binding.titleAddress.visibility = if (isShow) View.VISIBLE else View.GONE
         binding.spinnerLocations.visibility = if (isShow) View.VISIBLE else View.GONE
     }
 
     private fun showToast(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
 
@@ -190,7 +187,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(
-                    requireContext(),
+                    this,
                     Manifest.permission.ACCESS_FINE_LOCATION
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
@@ -216,8 +213,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
     }
 
     @Synchronized
-    protected fun buildGoogleApiClient() {
-        mGoogleApiClient = GoogleApiClient.Builder(requireContext())
+    private fun buildGoogleApiClient() {
+        mGoogleApiClient = GoogleApiClient.Builder(this)
             .addConnectionCallbacks(this)
             .addOnConnectionFailedListener(this)
             .addApi(LocationServices.API).build()
@@ -232,11 +229,11 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
         }
 
         if (ContextCompat.checkSelfPermission(
-                requireContext(),
+                this,
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED
         ) {
-            mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
+            mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
             mFusedLocationClient?.requestLocationUpdates(
                 mLocationRequest,
                 locationCallback,
@@ -251,7 +248,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
             mCurrLocationMarker!!.remove()
         }
 
-        // Place current location marker
         val latLng = LatLng(location.latitude, location.longitude)
         val markerOptions = MarkerOptions()
         markerOptions.position(latLng)
@@ -259,10 +255,9 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
         mCurrLocationMarker = mMap!!.addMarker(markerOptions)
 
-        // Move map camera
         mMap!!.moveCamera(CameraUpdateFactory.newLatLng(latLng))
         mMap!!.animateCamera(CameraUpdateFactory.zoomTo(11f))
-        // Stop location updates
+
         if (mGoogleApiClient != null) {
             mFusedLocationClient?.removeLocationUpdates(locationCallback)
         }
@@ -272,11 +267,11 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
     }
 
     private fun displayAddress(latLng: LatLng) {
-        val geocoder = Geocoder(requireContext(), Locale.getDefault())
+        val geocoder = Geocoder(this, Locale.getDefault())
         try {
             val addressList: List<Address>? =
                 geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1)
-            if (addressList != null && addressList.isNotEmpty()) {
+            if (!addressList.isNullOrEmpty()) {
                 val address = addressList[0]
                 binding.edAddress.setText(address.getAddressLine(0))
             } else {
@@ -353,11 +348,11 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
 
     fun searchLocation() {
         val location = "Bank Sampah"
-        val geoCoder = Geocoder(requireContext())
+        val geoCoder = Geocoder(this)
         try {
             val addressList = geoCoder.getFromLocationName(location, 1)
             if (addressList.isNullOrEmpty()) {
-                Toast.makeText(requireContext(), "No location found", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "No location found", Toast.LENGTH_SHORT).show()
                 return
             }
             val address = addressList[0]
@@ -365,7 +360,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
             mMap!!.addMarker(MarkerOptions().position(latLng).title(location))
             mMap!!.animateCamera(CameraUpdateFactory.newLatLng(latLng))
             Toast.makeText(
-                requireContext(),
+                this,
                 "${address.latitude} ${address.longitude}",
                 Toast.LENGTH_LONG
             ).show()
@@ -379,11 +374,12 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
         permissions: Array<String>,
         grantResults: IntArray
     ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             LOCATION_REQUEST_CODE -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     if (ContextCompat.checkSelfPermission(
-                            requireContext(),
+                            this,
                             Manifest.permission.ACCESS_FINE_LOCATION
                         ) == PackageManager.PERMISSION_GRANTED
                     ) {
@@ -391,16 +387,16 @@ class MapsFragment : Fragment(), OnMapReadyCallback,
                         mMap!!.isMyLocationEnabled = true
                     }
                 } else {
-                    Toast.makeText(requireContext(), "Permission Denied", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()
                 }
                 return
             }
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     companion object {

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.camera.MapsFragment">
+    tools:context=".view.camera.MapsActivity">
 
     <fragment
         android:id="@+id/map"
@@ -29,15 +29,14 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edt_address"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="8dp"
-        android:hint="Enter Your Name Address"
+        android:hint="@string/hint_address"
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_address">;
+        app:layout_constraintTop_toBottomOf="@+id/title_address">
 
         <com.capstone.cuansampah.view.customview.TextInput
             android:id="@+id/ed_address"
@@ -49,7 +48,6 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/title_address_collector"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -70,12 +68,14 @@
         android:visibility="gone"
         tools:visibility="visible"/>
 
-    <Button
+    <com.capstone.cuansampah.view.customview.FilledButton
         android:id="@+id/btn_save_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/continue_btn"
-        android:layout_margin="10dp"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:layout_margin="16dp"
         android:background="@android:color/holo_blue_light"/>
 </LinearLayout>
 

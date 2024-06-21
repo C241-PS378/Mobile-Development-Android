@@ -2,15 +2,19 @@ package com.capstone.cuansampah.view.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import com.capstone.cuansampah.R
+import androidx.lifecycle.ViewModelProvider
 import com.capstone.cuansampah.databinding.ActivityLoginBinding
+import com.capstone.cuansampah.view.main.MainActivity
 import com.capstone.cuansampah.view.register.RegisterActivity
+import com.capstone.cuansampah.view.viewModel.ViewModelFactory
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var loginViewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +22,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupView()
         setupAction()
+        setupViewModel()
     }
 
     private fun setupView() {
@@ -26,12 +31,31 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar?.title = ""
     }
 
-    private fun setupAction() {
+    private fun setupViewModel() {
+        val factory = ViewModelFactory.getInstance(application)
+        loginViewModel = ViewModelProvider(this, factory).get(LoginViewModel::class.java)
+    }
 
+    private fun setupAction() {
         binding.btnLogin.setOnClickListener {
-            val navController = findNavController(R.id.navigation_home)
-            navController.navigate(R.id.navigation_home)
+            val email = binding.edEmail.text.toString()
+            val password = binding.edPassword.text.toString()
+
+            binding.progressBar.visibility = View.VISIBLE
+
+            loginViewModel.login(email, password, { response ->
+
+                binding.progressBar.visibility = View.GONE
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }, { error ->
+
+                binding.progressBar.visibility = View.GONE
+                Toast.makeText(this, "Login failed: ${error.message}", Toast.LENGTH_SHORT).show()
+            })
         }
+
         binding.forgotPassword.setOnClickListener {
             startActivity(Intent(this, ResetPasswordActivity::class.java))
         }
@@ -41,9 +65,9 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    @Suppress("DEPRECATION")
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
     }
 }
+

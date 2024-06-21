@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageProduct"
+            android:id="@+id/image_product"
             android:layout_width="328dp"
             android:layout_height="328dp"
             android:scaleType="centerCrop"
@@ -62,7 +62,7 @@
         android:gravity="center">
 
         <TextView
-            android:id="@+id/categoryProduct"
+            android:id="@+id/category_product"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -72,7 +72,7 @@
             tools:text="Plastic"/>
 
         <TextView
-            android:id="@+id/stockProduct"
+            android:id="@+id/stock_product"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -82,7 +82,7 @@
             tools:text="10 items"/>
 
         <TextView
-            android:id="@+id/weightProduct"
+            android:id="@+id/weight_product"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -93,7 +93,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/descriptionLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
