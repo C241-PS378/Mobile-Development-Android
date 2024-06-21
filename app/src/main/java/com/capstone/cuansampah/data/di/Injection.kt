@@ -4,7 +4,6 @@ import android.content.Context
 import com.capstone.cuansampah.data.remote.repository.ImageClassificationRepository
 import com.capstone.cuansampah.data.remote.repository.UserRepository
 import com.capstone.cuansampah.data.remote.retrofit.ApiConfig
-import kotlinx.coroutines.runBlocking
 
 object Injection {
     fun provideImageClassificationRepository(context: Context): ImageClassificationRepository{

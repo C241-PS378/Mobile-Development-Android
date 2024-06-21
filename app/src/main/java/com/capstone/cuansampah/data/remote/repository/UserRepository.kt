@@ -1,6 +1,5 @@
 package com.capstone.cuansampah.data.remote.repository
 
-import com.capstone.cuansampah.data.local.User
 import com.capstone.cuansampah.data.remote.retrofit.ApiService
 import com.capstone.cuansampah.data.remote.response.LoginResponse
 
