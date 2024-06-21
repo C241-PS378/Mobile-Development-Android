@@ -1,80 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="none"
-    android:padding="16dp"
     tools:context=".view.home.HomeFragment">
 
-    <ImageView
-        android:id="@+id/imagePicker"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_marginHorizontal="16dp"
-        android:src="@drawable/image_container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.capstone.cuansampah.view.customview.FilledButton
-        android:id="@+id/cameraBtn"
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/open_camera"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:visibility="gone"
-        tools:visibility="visible"
-        app:layout_constraintEnd_toStartOf="@+id/galleryBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagePicker" />
+        android:padding="16dp">
 
-    <com.capstone.cuansampah.view.customview.FilledButton
-        android:id="@+id/galleryBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/open_gallery"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:visibility="gone"
-        tools:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cameraBtn"
-        app:layout_constraintTop_toBottomOf="@+id/imagePicker" />
+        <ImageView
+            android:id="@+id/imagePicker"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginHorizontal="16dp"
+            android:src="@drawable/image_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.capstone.cuansampah.view.customview.FilledButton
-        android:id="@+id/sellMarket"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/sell_to_market"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@id/sellCollector"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagePicker"
-        tools:visibility="visible" />
+        <com.capstone.cuansampah.view.customview.FilledButton
+            android:id="@+id/cameraBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/open_camera"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/galleryBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagePicker" />
 
-    <com.capstone.cuansampah.view.customview.FilledButton
-        android:id="@+id/sellCollector"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="20dp"
-        android:text="@string/sell_to_collector"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintStart_toEndOf="@id/sellMarket"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagePicker"
-        tools:visibility="visible" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.capstone.cuansampah.view.customview.FilledButton
+            android:id="@+id/galleryBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/open_gallery"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cameraBtn"
+            app:layout_constraintTop_toBottomOf="@+id/imagePicker" />
+
+        <com.capstone.cuansampah.view.customview.FilledButton
+            android:id="@+id/sellMarket"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/sell_to_market"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@id/sellCollector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagePicker"
+            tools:visibility="visible" />
+
+        <com.capstone.cuansampah.view.customview.FilledButton
+            android:id="@+id/sellCollector"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="20dp"
+            android:text="@string/sell_to_collector"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@id/sellMarket"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagePicker"
+            tools:visibility="visible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
