@@ -10,12 +10,11 @@ import androidx.appcompat.app.AlertDialog
 import com.capstone.cuansampah.data.remote.response.ResultResponse
 import com.capstone.cuansampah.databinding.ActivityRegisterBinding
 import com.capstone.cuansampah.view.login.LoginActivity
-import com.capstone.cuansampah.view.register.RegisterViewModel
+import com.capstone.cuansampah.view.viewModel.AuthViewModel
 import com.capstone.cuansampah.view.viewModel.ViewModelFactory
 
 class RegisterActivity : AppCompatActivity() {
-
-    private val viewModel by viewModels<RegisterViewModel> {
+    private val viewModel by viewModels<AuthViewModel> {
         ViewModelFactory.getInstance(this)
     }
 
@@ -49,7 +48,6 @@ class RegisterActivity : AppCompatActivity() {
                             is ResultResponse.Loading -> {
                                 showLoading(true)
                             }
-
                             is ResultResponse.Success -> {
                                 AlertDialog.Builder(this).apply {
                                     setTitle("Selamat")
@@ -64,7 +62,6 @@ class RegisterActivity : AppCompatActivity() {
                                     showLoading(false)
                                 }
                             }
-
                             is ResultResponse.Error -> {
                                 AlertDialog.Builder(this).apply {
                                     setTitle("Error")
@@ -85,11 +82,9 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
     }
-
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
-
     @Suppress("DEPRECATION")
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

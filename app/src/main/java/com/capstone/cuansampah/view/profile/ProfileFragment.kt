@@ -10,13 +10,13 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.capstone.cuansampah.R
 import com.capstone.cuansampah.databinding.FragmentProfileBinding
-import com.capstone.cuansampah.view.login.LoginViewModel
 import com.capstone.cuansampah.view.onboarding.OnboardingActivity
+import com.capstone.cuansampah.view.viewModel.AuthViewModel
 import com.capstone.cuansampah.view.viewModel.ViewModelFactory
 
 class ProfileFragment : Fragment() {
 
-    private val viewModel: LoginViewModel by viewModels {
+    private val viewModel: AuthViewModel by viewModels {
         ViewModelFactory.getInstance(requireContext())
     }
 

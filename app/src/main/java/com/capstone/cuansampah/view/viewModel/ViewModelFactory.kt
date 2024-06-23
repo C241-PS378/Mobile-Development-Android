@@ -5,18 +5,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.capstone.cuansampah.data.di.Injection
 import com.capstone.cuansampah.data.remote.repository.UsersRepository
-import com.capstone.cuansampah.view.login.LoginViewModel
-import com.capstone.cuansampah.view.main.MainActivity
-import com.capstone.cuansampah.view.register.RegisterViewModel
 
 class ViewModelFactory private constructor(private val userRepository: UsersRepository) :
     ViewModelProvider.NewInstanceFactory() {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return if (modelClass.isAssignableFrom(RegisterViewModel::class.java)) {
-            RegisterViewModel(userRepository) as T
-        } else if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
-            LoginViewModel(userRepository) as T
+        return if (modelClass.isAssignableFrom(AuthViewModel::class.java)) {
+            AuthViewModel(userRepository) as T
+        } else if (modelClass.isAssignableFrom(AuthViewModel::class.java)) {
+            AuthViewModel(userRepository) as T
         } else
             throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
 

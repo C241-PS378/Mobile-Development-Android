@@ -12,10 +12,11 @@ import com.capstone.cuansampah.data.remote.response.ResultResponse
 import com.capstone.cuansampah.databinding.ActivityLoginBinding
 import com.capstone.cuansampah.view.main.MainActivity
 import com.capstone.cuansampah.view.register.RegisterActivity
+import com.capstone.cuansampah.view.viewModel.AuthViewModel
 import com.capstone.cuansampah.view.viewModel.ViewModelFactory
 
 class LoginActivity : AppCompatActivity() {
-    private val viewModel by viewModels<LoginViewModel> {
+    private val viewModel by viewModels<AuthViewModel> {
         ViewModelFactory.getInstance(this)
     }
     private lateinit var binding: ActivityLoginBinding
@@ -26,12 +27,6 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupView()
         setupAction()
-        viewModel.getSession().observe(this) { user ->
-            if (user.isLogin) {
-                startActivity(Intent(this,MainActivity::class.java))
-                finish()
-            }
-        }
     }
 
     private fun setupView() {
@@ -39,9 +34,10 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar?.setBackgroundDrawable(null)
         supportActionBar?.title = ""
     }
+
     private fun setupAction() {
         binding.btnLogin.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+//            startActivity(Intent(this, MainActivity::class.java))
             val email = binding.edEmail.text.toString()
             val password = binding.edPassword.text.toString()
             viewModel.login(email, password).observe(this) { response ->
@@ -51,9 +47,8 @@ class LoginActivity : AppCompatActivity() {
                         is ResultResponse.Loading -> {
                             showLoading(true)
                         }
-
                         is ResultResponse.Success -> {
-                            Log.d("SuccessLogin", response.toString() )
+                            Log.d("SuccessLogin", response.toString())
                             response.data.token?.let { it1 ->
                                 UserModel(
                                     email,
@@ -104,9 +99,11 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
