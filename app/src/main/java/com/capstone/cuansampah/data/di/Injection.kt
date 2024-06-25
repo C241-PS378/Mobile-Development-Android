@@ -4,6 +4,7 @@ import android.content.Context
 import com.capstone.cuansampah.data.remote.UserPreference
 import com.capstone.cuansampah.data.remote.dataStore
 import com.capstone.cuansampah.data.remote.repository.ImageClassificationRepository
+import com.capstone.cuansampah.data.remote.repository.MarketRepository
 import com.capstone.cuansampah.data.remote.repository.UsersRepository
 import com.capstone.cuansampah.data.remote.retrofit.ApiConfig
 import kotlinx.coroutines.flow.first
@@ -15,7 +16,7 @@ object Injection {
         return ImageClassificationRepository.getInstance(apiService)
     }
 
-    fun provideRepository(context:Context): UsersRepository{
+    fun provideUserRepository(context:Context): UsersRepository{
         val pref = UserPreference.getInstance(context.dataStore)
         val user = runBlocking { pref.getSession().first() }
         val token = user.token
@@ -23,4 +24,14 @@ object Injection {
         val apiService = ApiConfig.getApiServiceUser(token, cookie)
         return UsersRepository.getInstance(pref, apiService)
     }
+
+    fun provideMarketRepository(context:Context): MarketRepository {
+        val pref = UserPreference.getInstance(context.dataStore)
+        val user = runBlocking { pref.getSession().first() }
+        val token = user.token
+        val cookie = "jwt=${token}"
+        val apiService = ApiConfig.getApiServiceMarket(token, cookie)
+        return MarketRepository.getInstance(pref, apiService)
+    }
+
 }

@@ -174,7 +174,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="40dp"
-                    android:text="Alamat"
+                    android:text="Name"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -185,12 +185,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="56dp"
                     android:layout_marginEnd="6dp"
-                    android:text="Alamat"
+                    android:text="Name"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.944"
                     app:layout_constraintStart_toEndOf="@+id/tv_name_address"
                     app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
                     android:id="@+id/tv_contact_address"
                     android:layout_width="wrap_content"
@@ -214,21 +215,20 @@
                     app:layout_constraintHorizontal_bias="0.959"
                     app:layout_constraintStart_toEndOf="@+id/tv_contact_address"
                     app:layout_constraintTop_toBottomOf="@+id/cv_name_address" />
+
                 <TextView
-                    android:id="@+id/tv_address"
+                    android:id="@+id/tv_address_confirmation_seller"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="300dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="8dp"
                     android:text="Address"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_contact_address" />
+
                 <TextView
                     android:id="@+id/cv_address"
                     android:layout_width="wrap_content"
@@ -274,7 +274,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="40dp"
-                    android:text="Alamat"
+                    android:text="Name"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -285,7 +285,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="56dp"
                     android:layout_marginEnd="6dp"
-                    android:text="Alamat"
+                    android:text="Name"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.944"
@@ -315,20 +315,17 @@
                     app:layout_constraintStart_toEndOf="@+id/tv_contact_collector"
                     app:layout_constraintTop_toBottomOf="@+id/cv_name_collector" />
                 <TextView
-                    android:id="@+id/tv_collector"
+                    android:id="@+id/tv_address_confirmation_sollector"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="300dp"
-                    android:layout_marginBottom="16dp"
                     android:text="Address"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_contact_collector" />
+
                 <TextView
                     android:id="@+id/cv_collector"
                     android:layout_width="wrap_content"
@@ -338,13 +335,13 @@
                     android:text="address"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.961"
+                    app:layout_constraintHorizontal_bias="0.95"
                     app:layout_constraintStart_toEndOf="@+id/tv_contact_collector"
                     app:layout_constraintTop_toBottomOf="@+id/cv_contact_collector" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
         <Button
-            android:id="@+id/btn_sell_waste"
+            android:id="@+id/btn_sell_confirmation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

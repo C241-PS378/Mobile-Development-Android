@@ -2,6 +2,8 @@ package com.capstone.cuansampah.data.remote.retrofit
 
 import com.capstone.cuansampah.data.remote.response.ImageClassificationResponse
 import com.capstone.cuansampah.data.remote.response.LoginResponse
+import com.capstone.cuansampah.data.remote.response.MarketResponse
+import com.capstone.cuansampah.data.remote.response.ProdukResponse
 import com.capstone.cuansampah.data.remote.response.ProfileResponse
 import com.capstone.cuansampah.data.remote.response.RegisterResponse
 import okhttp3.MultipartBody
@@ -46,4 +48,18 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Header("Authorization") cookie: String
     ): ProfileResponse
+
+    @GET("market")
+    fun getWaste(
+        @Header("Authorization") token: String,
+        @Header("Authorization") cookie: String,
+    ): Call<MarketResponse>
+
+    @GET("waste/{id}")
+    fun getDetailWaste(
+        @Header("Authorization") token: String,
+        @Header("Authorization") cookie: String,
+        @Path("id") id: Int
+    ): Call<ProdukResponse>
+
 }

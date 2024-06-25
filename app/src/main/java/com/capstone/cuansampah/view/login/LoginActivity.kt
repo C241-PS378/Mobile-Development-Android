@@ -13,11 +13,11 @@ import com.capstone.cuansampah.databinding.ActivityLoginBinding
 import com.capstone.cuansampah.view.main.MainActivity
 import com.capstone.cuansampah.view.register.RegisterActivity
 import com.capstone.cuansampah.view.viewModel.AuthViewModel
-import com.capstone.cuansampah.view.viewModel.ViewModelFactory
+import com.capstone.cuansampah.view.viewModel.AuthModelFactory
 
 class LoginActivity : AppCompatActivity() {
     private val viewModel by viewModels<AuthViewModel> {
-        ViewModelFactory.getInstance(this)
+        AuthModelFactory.getInstance(this)
     }
     private lateinit var binding: ActivityLoginBinding
 

@@ -10,7 +10,6 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="dont_have_an_account">Don\'t have an account?</string>
     <string name="create_account_first">Create Your Account First!</string>
-
     <string name="username_hint">Username</string>
     <string name="phone_hint">Phone Number</string>
     <string name="confirm_password_hint">Confirm Password</string>
@@ -27,6 +26,7 @@
     <string name="title_shipping">Shipping</string>
     <string name="title_profile">Profile</string>
     <string name="confirmation_header">Confirmation</string>
+    <string name="success_header">Success</string>
 
     <string name="product_bahaya">Bahaya</string>
     <string name="pb_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque libero elit, vitae elementum nulla placerat vitae. Nullam et massa dignissim, fermentum nisl vitae, molestie lacus. Morbi sit amet velit non ligula dictum accumsan et vel sem. suscipit lectus. Donec sodales justo sit.</string>
@@ -60,13 +60,11 @@
     <string name="address_detail">Address Detail</string>
     <string name="done">Done</string>
     <string name="see_detail">See Detail</string>
-
-
     <!--    TEMPORARY   -->
     <string name="address">
-        Jane Doe`s House\n
+        Zidane House\n
         0812-3456-7890\n
-        Jl.Kemangi No.234, Jakarta
+        Jl.Sleman Yogyakarta
     </string>
     <string name="tag_delivery">Delivery</string>
     <string name="jne">JNE</string>
@@ -85,7 +83,7 @@
     <string name="tab_cancelled">Cancelled</string>
     <string name="continue_button">Continue</string>
     <string name="product_name">Nama Sampah</string>
-    <string name="product_price">Rp. XX.XXX,-</string>
+    <string name="product_price">Rp.10.000,-</string>
     <string name="sell_to_collector">Sell to collector</string>
     <string name="kg">/kg</string>
     <string name="title_address">Your Address</string>
@@ -100,8 +98,8 @@
     <string name="sell_to_market">Sell to Market</string>
 
     <string-array name="data_product">
-        <item>Botol air mineral</item>
         <item>Botol plastik</item>
+        <item>Botol air mineral</item>
         <item>Botol mineral</item>
     </string-array>
 
@@ -112,13 +110,13 @@
     </string-array>
 
     <integer-array name="data_photo">
-        <item>@drawable/trash_1</item>
         <item>@drawable/trash_2</item>
+        <item>@drawable/trash_1</item>
         <item>@drawable/trash_3</item>
     </integer-array>
 
     <string-array name="data_category">
-        <item>Plastic</item>
+        <item>Anorganic</item>
         <item>Plastic</item>
         <item>Plastic</item>
     </string-array>
@@ -130,13 +128,13 @@
     </string-array>
 
     <string-array name="data_weight">
-        <item>1.5 kg</item>
-        <item>1.5 kg</item>
-        <item>1.5 kg</item>
+        <item>2 kg</item>
+        <item>2 kg</item>
+        <item>2 kg</item>
     </string-array>
 
     <string-array name="data_desc">
-        <item>Lorem ipsum dolor sit amet</item>
+        <item>Bahaya":"\n     Di lingkungan, plastik mencemari laut dan tanah, mengganggu ekosistem, dan dapat bertahan selama berabad-abad.\n     Plastik juga dapat menyebabkan kontaminasi makanan dan minuman dengan mikroplastik, yang berpotensi merusak kesehatan manusia dengan bahan kimia berbahaya seperti BPA dan ftalat.\n     "</item>
         <item>Lorem ipsum dolor sit amet</item>
         <item>Lorem ipsum dolor sit amet</item>
     </string-array>
