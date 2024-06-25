@@ -15,6 +15,8 @@ class RegisterResponse {
     @field: SerializedName("data")
     val data: Data? = null
 }
+
+/**
 data class Data(
     @field: SerializedName("id")
     val id: Int? = null,
@@ -31,6 +33,11 @@ data class Data(
     @field: SerializedName("password")
     val password : String? = null,
 
+    @field: SerializedName("image")
+    val image: Int? = null,
+
     @field: SerializedName("role")
     val role: String? = null,
 )
+
+ **/

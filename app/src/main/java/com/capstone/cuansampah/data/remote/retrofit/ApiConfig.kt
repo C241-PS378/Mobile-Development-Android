@@ -28,13 +28,14 @@ object ApiConfig {
             .build()
         return retrofit.create(ApiService::class.java)
     }
-    fun getApiServiceUser(token: String): ApiService{
+    fun getApiServiceUser(token: String, cookie: String): ApiService{
         val loggingInterceptor =
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         val authInterceptor = Interceptor { chain ->
             val req = chain.request()
             val requestHeaders = req.newBuilder()
                 .header("Authorization", "Bearer $token")
+                .header("Cookie", cookie)
                 .build()
             chain.proceed(requestHeaders)
         }

@@ -11,21 +11,28 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/imagePicker"
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:layout_marginHorizontal="16dp"
-            android:src="@drawable/image_container"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/imagePicker"
+                android:layout_gravity="center"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_container" />
+        </com.google.android.material.card.MaterialCardView>
 
         <com.capstone.cuansampah.view.customview.FilledButton
             android:id="@+id/cameraBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="20dp"
             android:text="@string/open_camera"
             android:textStyle="bold"
@@ -34,14 +41,14 @@
             tools:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/galleryBtn"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagePicker" />
+            app:layout_constraintTop_toBottomOf="@+id/card_image" />
 
         <com.capstone.cuansampah.view.customview.FilledButton
             android:id="@+id/galleryBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="32dp"
             android:text="@string/open_gallery"
             android:textStyle="bold"
             android:textAllCaps="false"
@@ -49,13 +56,13 @@
             tools:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cameraBtn"
-            app:layout_constraintTop_toBottomOf="@+id/imagePicker" />
+            app:layout_constraintTop_toBottomOf="@+id/card_image" />
 
         <com.capstone.cuansampah.view.customview.FilledButton
             android:id="@+id/sellMarket"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="20dp"
             android:text="@string/sell_to_market"
             android:textStyle="bold"
@@ -63,14 +70,14 @@
             android:visibility="gone"
             app:layout_constraintEnd_toStartOf="@id/sellCollector"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagePicker"
+            app:layout_constraintTop_toBottomOf="@+id/card_image"
             tools:visibility="visible" />
 
         <com.capstone.cuansampah.view.customview.FilledButton
             android:id="@+id/sellCollector"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="32dp"
             android:layout_marginStart="20dp"
             android:text="@string/sell_to_collector"
             android:textAllCaps="false"
@@ -78,7 +85,7 @@
             android:visibility="gone"
             app:layout_constraintStart_toEndOf="@id/sellMarket"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagePicker"
+            app:layout_constraintTop_toBottomOf="@+id/card_image"
             tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

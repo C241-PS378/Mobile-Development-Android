@@ -1,15 +1,9 @@
 package com.capstone.cuansampah.data.remote.repository
 
-import android.content.ContentValues
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import com.capstone.cuansampah.data.model.UserModel
 import com.capstone.cuansampah.data.remote.UserPreference
-import com.capstone.cuansampah.data.remote.response.Data
 import com.capstone.cuansampah.data.remote.response.LoginResponse
-import com.capstone.cuansampah.data.remote.response.ProfileResponse
 import com.capstone.cuansampah.data.remote.response.RegisterResponse
 import com.capstone.cuansampah.data.remote.response.ResultResponse
 import com.capstone.cuansampah.data.remote.retrofit.ApiService
@@ -45,14 +39,11 @@ class UsersRepository private constructor(
             emit(ResultResponse.Error(errorResponse.error.toString()))
         }
     }
-    fun profile(token: String) = liveData {
-//        emit(ResultResponse.Loading)
+    fun profile(token: String, cookie: String) = liveData {
         try {
-            Log.d("ApiService", "Token: $token")
-            val successResponse = apiService.profile(token)
-            emit(ResultResponse.Success(successResponse))
+            val response = apiService.profile(token, cookie)
+            emit(ResultResponse.Success(response))
         } catch (e: Exception) {
-            Log.d("ApiService", "Token: ${ResultResponse.Error(e.toString())}")
             emit(ResultResponse.Error(e.toString()))
         }
     }

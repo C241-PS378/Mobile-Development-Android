@@ -19,8 +19,8 @@ object Injection {
         val pref = UserPreference.getInstance(context.dataStore)
         val user = runBlocking { pref.getSession().first() }
         val token = user.token
-        val apiService = ApiConfig.getApiServiceUser(token)
+        val cookie = "jwt=${token}"
+        val apiService = ApiConfig.getApiServiceUser(token, cookie)
         return UsersRepository.getInstance(pref, apiService)
     }
-
 }

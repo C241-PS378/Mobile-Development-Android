@@ -32,5 +32,6 @@
     <color name="emerald">#15C986</color>
     <color name="jade">#11A670</color>
     <color name="light_aquamarine">#22E3A0</color>
+    <color name="shimmer_color">#C2C2C2</color>
     <color name="on_error">#FB4B4B</color>
 </resources>

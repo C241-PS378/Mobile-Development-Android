@@ -41,9 +41,9 @@ interface ApiService {
         @Field("confirm_password") confirm_password: String
     ) : RegisterResponse
 
-    @Headers("Accept: application/json")
     @GET("profile")
     suspend fun profile(
         @Header("Authorization") token: String,
+        @Header("Authorization") cookie: String
     ): ProfileResponse
 }
