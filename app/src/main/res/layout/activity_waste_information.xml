@@ -12,16 +12,24 @@
         android:padding="16dp"
         tools:context=".view.camera.WasteInformationFragment">
 
-        <ImageView
-            android:id="@+id/imageWaste"
-            android:layout_width="199dp"
-            android:layout_height="152dp"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/image_container"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/image_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <ImageView
+                android:id="@+id/imageWaste"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_container" />
+        </com.google.android.material.card.MaterialCardView>
+
 
         <TextView
             android:id="@+id/product_name"
@@ -32,8 +40,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageWaste" />
-
+            app:layout_constraintTop_toBottomOf="@+id/image_container" />
 
         <TextView
             android:id="@+id/product_price"
@@ -128,22 +135,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_weight" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/edt_weight_input"
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="48dp"
             android:layout_marginTop="8dp"
             android:layout_marginStart="8dp"
-            app:errorEnabled="true"
+            android:layout_margin="16dp"
+            android:inputType="number"
             app:layout_constraintStart_toEndOf="@+id/ic_weight"
-            app:layout_constraintTop_toBottomOf="@+id/product_weight">
+            app:layout_constraintTop_toBottomOf="@+id/product_weight"/>
 
-            <com.capstone.cuansampah.view.customview.TextInput
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center|start"
-                tools:ignore="SpeakableTextPresentCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -165,20 +167,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ic_weight" />
 
-        <Button
+<!--        <Button-->
+<!--            android:id="@+id/openMap"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="184dp"-->
+<!--            android:drawableStart="@drawable/location"-->
+<!--            android:backgroundTint="@color/white"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:text="@string/open_maps"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/title_address" />-->
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/openMap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="184dp"
-            android:drawableStart="@drawable/location"
             android:backgroundTint="@color/white"
             android:textColor="@color/black"
             android:text="@string/open_maps"
-            android:visibility="visible"
-            tools:visibility="gone"
+            app:drawableStartCompat="@drawable/location"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_address" />
+
 
         <TextView
             android:id="@+id/seller_address"

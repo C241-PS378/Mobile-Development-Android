@@ -15,22 +15,3 @@ class RegisterResponse {
     @field: SerializedName("data")
     val data: Data? = null
 }
-data class Data(
-    @field: SerializedName("id")
-    val id: Int? = null,
-
-    @field: SerializedName("username")
-    val username: String? = null,
-
-    @field: SerializedName("email")
-    val email : String? = null,
-
-    @field: SerializedName("phone_number")
-    val phone_number : String? = null,
-
-    @field: SerializedName("password")
-    val password : String? = null,
-
-    @field: SerializedName("role")
-    val role: String? = null,
-)

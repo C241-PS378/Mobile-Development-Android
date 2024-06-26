@@ -9,6 +9,9 @@ import android.view.View
 import androidx.annotation.RequiresExtension
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
@@ -16,6 +19,7 @@ import com.capstone.cuansampah.R
 import com.capstone.cuansampah.data.remote.response.ResultResponse
 import com.capstone.cuansampah.databinding.ActivityWasteInformationBinding
 import com.capstone.cuansampah.utils.uriToFile
+import com.capstone.cuansampah.view.main.MainActivity
 import com.capstone.cuansampah.view.market.MarketFragment
 import com.capstone.cuansampah.view.market.seller.ConfirmationActivity
 
@@ -24,11 +28,11 @@ class WasteInformationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWasteInformationBinding
     private var imageUri: Uri? = null
     private var collector: Boolean? = null
-    private var openMap: Boolean? = null
     private var address: String? = null
     private var collector_address: String? = null
     private var lat: Double? = null
     private var lon: Double? = null
+    private var waste_name: String? = null
     private lateinit var viewModel: ImageClassificationViewModel
 
     @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
@@ -46,7 +50,6 @@ class WasteInformationActivity : AppCompatActivity() {
         lon = intent.getDoubleExtra("lon", 0.0)
         collector = intent.getBooleanExtra("collector", false)
         collector_address = intent.getStringExtra("collector_address")
-        openMap = intent.getBooleanExtra("openMap", false)
 
         imageUri?.let { uri ->
             Glide.with(this)
@@ -57,10 +60,6 @@ class WasteInformationActivity : AppCompatActivity() {
 
         binding.sellerAddress.text = address
         binding.collectorAddress.text = collector_address
-
-        if (!address.isNullOrEmpty()) {
-            hideMap(true)
-        }
 
         val imageFile = imageUri?.let { uriToFile(it, this) }
         if (imageFile != null) {
@@ -74,6 +73,7 @@ class WasteInformationActivity : AppCompatActivity() {
                         is ResultResponse.Success -> {
                             showLoading(false)
                             Log.d("Info", "success: ${response.data}")
+                            waste_name = response.data.nama.toString()
                             binding.productName.text = response.data.nama.toString()
                             binding.pbContent.text = response.data.bahaya.toString()
                             binding.ppContent.text = response.data.pengolahan.toString()
@@ -92,17 +92,33 @@ class WasteInformationActivity : AppCompatActivity() {
         if (collector == false) {
             binding.btnSellWaste.text = getString(R.string.sell_to_market)
             binding.btnSellWaste.setOnClickListener {
-                val intent = Intent(this, MarketFragment::class.java)
-                startActivity(intent)
+                binding.btnSellWaste.setOnClickListener {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }
             }
-
         } else {
             showCollectorAddress(true)
             binding.collectorAddress.text = collector_address
             binding.btnSellWaste.setOnClickListener {
-                val intent = Intent(this, ConfirmationActivity::class.java)
+                val intent = Intent(this, ConfirmationActivity::class.java).apply {
+                    if(waste_name!=null){
+                        putExtra("waste_name", waste_name)
+                    }else{
+                        putExtra("waste_name", "Botol Plastik")
+                    }
+                    putExtra("waste_price", 10000)
+                    putExtra("waste_weight", 4.0)
+                    putExtra("imageUri", imageUri)
+                    putExtra("collector_address",collector_address)
+                    putExtra("seller_address",address)
+                    putExtra("lat",lat)
+                    putExtra("lon",lon)
+                    collector?.let { putExtra("collector", it) }
+                }
                 startActivity(intent)
             }
+
         }
 
         binding.openMap.setOnClickListener {
@@ -130,10 +146,6 @@ class WasteInformationActivity : AppCompatActivity() {
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
-    }
-
-    private fun hideMap(isShow: Boolean) {
-        binding.openMap.visibility = if (isShow) View.VISIBLE else View.GONE
     }
 
     override fun onSupportNavigateUp(): Boolean {

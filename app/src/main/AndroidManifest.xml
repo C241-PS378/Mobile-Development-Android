@@ -64,6 +64,10 @@
             android:name=".view.onboarding.OnboardingActivity"
             android:exported="false" />
         <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
             android:name=".view.main.MainActivity"
             android:exported="true"
             android:theme="@style/MainActivityTheme">

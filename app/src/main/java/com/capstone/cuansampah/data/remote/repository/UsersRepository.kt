@@ -1,6 +1,5 @@
 package com.capstone.cuansampah.data.remote.repository
 
-import android.util.Log
 import androidx.lifecycle.liveData
 import com.capstone.cuansampah.data.model.UserModel
 import com.capstone.cuansampah.data.remote.UserPreference
@@ -40,6 +39,14 @@ class UsersRepository private constructor(
             emit(ResultResponse.Error(errorResponse.error.toString()))
         }
     }
+    fun profile(token: String, cookie: String) = liveData {
+        try {
+            val response = apiService.profile(token, cookie)
+            emit(ResultResponse.Success(response))
+        } catch (e: Exception) {
+            emit(ResultResponse.Error(e.toString()))
+        }
+    }
 
     fun userRegister(username: String, email: String, phone_number: String, password: String, confirm_password: String) = liveData {
         emit(ResultResponse.Loading)
@@ -53,8 +60,7 @@ class UsersRepository private constructor(
         }
     }
     companion object {
-        private const val TAG = "Register View Model"
-
+        private const val TAG = "Auth View Model"
         @Volatile
         private var instance: UsersRepository? = null
         fun getInstance(

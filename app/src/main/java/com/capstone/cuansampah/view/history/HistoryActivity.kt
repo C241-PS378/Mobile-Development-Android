@@ -40,10 +40,7 @@ class HistoryActivity : AppCompatActivity() {
     }
 
     private fun populateHistoryList() {
-        // Add sample data to the list
-        historyList.add(History("Sample Name 1", "2023-06-01", "$10.00"))
-        historyList.add(History("Sample Name 2", "2023-06-02", "$20.00"))
-        historyList.add(History( "Sample Name 3", "2023-06-03", "$30.00"))
+        historyList.add(History("Botol Plastik", "2024-06-25", "Rp 16.000"))
     }
 
     override fun onSupportNavigateUp(): Boolean {
