@@ -72,6 +72,16 @@
             tools:text="Plastic"/>
 
         <TextView
+            android:id="@+id/stock_product"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            app:drawableStartCompat="@drawable/ic_stock"
+            android:textColor="@color/emerald"
+            android:textStyle="bold"
+            tools:text="10 items"/>
+
+        <TextView
             android:id="@+id/weight_product"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,7 +111,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/waste_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="@tools:sample/lorem/random"/>

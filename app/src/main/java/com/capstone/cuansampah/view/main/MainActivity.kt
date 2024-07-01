@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -15,7 +16,7 @@ import com.capstone.cuansampah.view.history.HistoryActivity
 import com.capstone.cuansampah.view.market.order.CartActivity
 import com.capstone.cuansampah.view.onboarding.OnboardingActivity
 import com.capstone.cuansampah.view.viewModel.AuthViewModel
-import com.capstone.cuansampah.view.viewModel.AuthModelFactory
+import com.capstone.cuansampah.view.viewModel.ViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var navController: NavController
-    private val viewModel: AuthViewModel by viewModels { AuthModelFactory.getInstance(this) }
+    private val viewModel: AuthViewModel by viewModels { ViewModelFactory.getInstance(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

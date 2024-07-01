@@ -60,8 +60,8 @@ class ProductActivity : AppCompatActivity() {
                 nameProduct.text = it.name
                 priceProduct.text = it.price
                 categoryProduct.text = it.category
+                stockProduct.text = it.stock
                 weightProduct.text = it.weight
-                wasteDescription.text = it.description
             }
         }
     }
