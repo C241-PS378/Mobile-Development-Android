@@ -23,7 +23,7 @@ import com.capstone.cuansampah.databinding.FragmentProfileBinding
 import com.capstone.cuansampah.utils.getImageUri
 import com.capstone.cuansampah.view.onboarding.OnboardingActivity
 import com.capstone.cuansampah.view.viewModel.AuthViewModel
-import com.capstone.cuansampah.view.viewModel.AuthModelFactory
+import com.capstone.cuansampah.view.viewModel.ViewModelFactory
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
 import com.yalantis.ucrop.UCrop
@@ -32,7 +32,7 @@ import java.io.File
 class ProfileFragment : Fragment() {
 
     private val viewModel: AuthViewModel by viewModels {
-        AuthModelFactory.getInstance(requireContext())
+        ViewModelFactory.getInstance(requireContext())
     }
 
     private var _binding: FragmentProfileBinding? = null
@@ -64,10 +64,6 @@ class ProfileFragment : Fragment() {
                         when (profileResult) {
                             is ResultResponse.Success -> {
                                 updateProfileUI(profileResult.data)
-                                binding.tvUsername.text = profileResult.data.data?.username
-                                binding.tvLocation.text = profileResult.data.data?.email
-                                binding.tvUsername.text = "Ahmad Zidane"
-                                binding.tvLocation.text = "zidane@gmail.com"
                             }
 
                             is ResultResponse.Error -> {

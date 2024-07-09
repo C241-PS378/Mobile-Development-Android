@@ -11,11 +11,11 @@ import com.capstone.cuansampah.data.remote.response.ResultResponse
 import com.capstone.cuansampah.databinding.ActivityRegisterBinding
 import com.capstone.cuansampah.view.login.LoginActivity
 import com.capstone.cuansampah.view.viewModel.AuthViewModel
-import com.capstone.cuansampah.view.viewModel.AuthModelFactory
+import com.capstone.cuansampah.view.viewModel.ViewModelFactory
 
 class RegisterActivity : AppCompatActivity() {
     private val viewModel by viewModels<AuthViewModel> {
-        AuthModelFactory.getInstance(this)
+        ViewModelFactory.getInstance(this)
     }
 
     private lateinit var binding: ActivityRegisterBinding

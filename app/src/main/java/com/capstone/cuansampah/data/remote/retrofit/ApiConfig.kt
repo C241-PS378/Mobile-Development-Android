@@ -29,6 +29,8 @@ object ApiConfig {
         return retrofit.create(ApiService::class.java)
     }
     fun getApiServiceUser(token: String, cookie: String): ApiService{
+        val loggingInterceptor =
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         val authInterceptor = Interceptor { chain ->
             val req = chain.request()
             val requestHeaders = req.newBuilder()
@@ -38,34 +40,14 @@ object ApiConfig {
             chain.proceed(requestHeaders)
         }
         val client = OkHttpClient.Builder()
-            .addInterceptor(authInterceptor)
+            .addInterceptor(loggingInterceptor)
             .build()
+
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://backendapi-2g7newb35q-et.a.run.app/api/auth/")
+            .baseUrl("https://backend-2g7newb35q-et.a.run.app/api/auth/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
         return retrofit.create(ApiService::class.java)
     }
-
-    fun getApiServiceMarket(token: String, cookie: String): ApiService {
-        val authInterceptor = Interceptor { chain ->
-            val req = chain.request()
-            val requestHeaders = req.newBuilder()
-                .header("Authorization", "Bearer $token")
-                .header("Cookie", cookie)
-                .build()
-            chain.proceed(requestHeaders)
-        }
-        val client = OkHttpClient.Builder()
-            .addInterceptor(authInterceptor)
-            .build()
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://backendapi-2g7newb35q-et.a.run.app/api/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
-            .build()
-        return retrofit.create(ApiService::class.java)
-    }
-
 }

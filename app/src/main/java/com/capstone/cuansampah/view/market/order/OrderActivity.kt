@@ -50,9 +50,4 @@ class OrderActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
-
-
-    companion object {
-        const val KEY_PRODUCT = "key_product"
-    }
 }
