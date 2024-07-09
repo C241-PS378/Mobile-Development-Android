@@ -4,12 +4,12 @@
  
 #### Save Waste, Save Earth, Save Money
 
-**Cuan Sampah** is Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nisl eget sollicitudin scelerisque, ex dolor posuere justo, vel tincidunt nisl ligula vel mi. Donec eget volutpat nisi, id elementum tortor. Praesent posuere sem vel laoreet mollis. Nulla aliquet nibh nisl, sit amet bibendum lacus volutpat eget. In viverra blandit.
+**Cuan Sampah** is a platform designed to transform waste management in Indonesia. By facilitating the buying and selling of waste materials, CuMa not only promotes responsible waste management but also provides economic opportunities for individuals and businesses. The app aims to reduce environmental impact, enhance sustainability, and foster a circular economy.
 
 ## :gear: Features
-- 💸: Sell Your Waste!
-- 🛻: Nearby Collectors Pick Up
-- 🛒: Waste Market
+- 📷Waste Detection: Identify waste effortlessly and get insightful information.
+- 🛒Marketplace: Buy and sell recyclable materials.
+- 📍Find Nearby Collectors: Easily locate waste collectors nearby.
 
 ## :technologist: Project Team Members
 - Alda Kurnia Putri - M015D4KX2311
